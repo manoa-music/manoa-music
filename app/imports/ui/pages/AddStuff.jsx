@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header, Card, Image, Icon } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, SubmitField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -80,6 +80,9 @@ class AddStuff extends React.Component {
                 </Segment>
                 <Segment vertical>
                   Instruments: Guitar
+                </Segment>
+                <Segment vertical>
+                  Capabilities: Rapping, Singing
                 </Segment>
                 <Segment vertical>
                   Genres: Hip-hop/Rap
