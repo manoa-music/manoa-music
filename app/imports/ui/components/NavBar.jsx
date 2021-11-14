@@ -16,7 +16,7 @@ class NavBar extends React.Component {
           <Header inverted as='h1'>Manoa Music <Image size="mini" src="https://www.clipartmax.com/png/full/15-153553_green-music-notes-clipart-music-note-clip-art.png"/></Header>
         </Menu.Item>
         {this.props.currentUser ? (
-          [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Stuff</Menu.Item>,
+          [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Profiles</Menu.Item>,
             <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>List Stuff</Menu.Item>]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
