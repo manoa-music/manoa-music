@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Menu, Dropdown, Header } from 'semantic-ui-react';
+import { Menu, Dropdown, Header, Image } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
@@ -11,9 +11,9 @@ class NavBar extends React.Component {
   render() {
     const menuStyle = { marginBottom: '10px' };
     return (
-      <Menu position = 'center' color ="blue" style={menuStyle} attached="top" borderless inverted>
-        <Menu.Item as={NavLink} activeClassName="" exact to="/" >
-          <Header inverted as='h1' color = "white" >Welcome to Manoa Music</Header>
+      <Menu style={menuStyle} attached="top" borderless inverted>
+        <Menu.Item as={NavLink} activeClassName="" exact to="/">
+          <Header inverted as='h1'>Manoa Music <Image size="mini" src="https://www.clipartmax.com/png/full/15-153553_green-music-notes-clipart-music-note-clip-art.png"/></Header>
         </Menu.Item>
         {this.props.currentUser ? (
           [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Add Stuff</Menu.Item>,
