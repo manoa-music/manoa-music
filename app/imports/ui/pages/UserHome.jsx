@@ -12,7 +12,7 @@ class UserHome extends React.Component {
   state = { name: '', Instrument: [], Taste: [], Goal: [], Capability: [] };
 
   // Temporary Data
-  profiles = [{ firstName: 'Bob', lastName: 'Zim', instruments: ['Guitar'], tastes: ['Rock'], goals: ['Occasional'], capabilities: ['Music Theory'] }];
+  profiles = [{ firstName: 'Bob', lastName: 'Zim', instruments: ['Guitar'], tastes: ['Rock'], goals: ['Occasional'], capabilities: ['Music Theory'] }, { firstName: 'Tim', lastName: 'Goat', instruments: ['Piano', 'Tuba'], tastes: ['Pop Music'], goals: ['Music Career'], capabilities: ['Singing'] }, { firstName: 'Sasha', lastName: 'Cup', instruments: ['Drums'], tastes: ['Classical'], goals: ['Jam Session'], capabilities: ['Singing', 'Music Theory'] }];
 
   instruments = ['Guitar', 'Piano', 'Drums', 'Clarinet', 'Violin', 'Tuba'];
 
