@@ -4,6 +4,7 @@ import { Loader, Card, Form, Container, Dropdown, Checkbox, Grid } from 'semanti
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
+import ProfileCard from '../components/ProfileCard';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class UserHome extends React.Component {
@@ -121,15 +122,15 @@ class UserHome extends React.Component {
             <Form.Dropdown simple text='Goals'>
               <Dropdown.Menu widths={3}>
                 <Grid columns={5}>
-                  {this.goals.map((goal) => <Grid.Column width={3}>
+                  {this.goals.map((goal) => <Grid.Column width={15}>
                     <Checkbox className='Goal' label={goal} onChange={this.setTags}/>
                   </Grid.Column>)}
                 </Grid>
               </Dropdown.Menu>
             </Form.Dropdown>
-            <Form.Dropdown simple text='Goals'>
+            <Form.Dropdown simple text='Capabilities'>
               <Dropdown.Menu widths={3}>
-                <Grid columns={3}>
+                <Grid columns={5}>
                   {this.capabilities.map((capability) => <Grid.Column width={15}>
                     <Checkbox className='Capability' label={capability} onChange={this.setTags}/>
                   </Grid.Column>)}
@@ -139,18 +140,7 @@ class UserHome extends React.Component {
           </Form.Group>
         </Form>
         <Card.Group stackable itemsPerRow="5">
-          {this.filterProfiles(this.profiles).map((profile) => (
-            <Card>
-              <Card.Content>
-                <Card.Header>
-                  {profile.firstName} {profile.lastName}
-                </Card.Header>
-                <Card.Meta>
-                  {profile.instruments}; {profile.tastes}; {profile.goals}; {profile.capabilities}
-                </Card.Meta>
-              </Card.Content>
-            </Card>
-          ))}
+          {this.filterProfiles(this.profiles).map((profile) => <ProfileCard profile={profile}/>)}
         </Card.Group>
       </Container>
     );
