@@ -4,6 +4,7 @@ import { Loader, Card, Form, Container, Dropdown, Checkbox, Grid } from 'semanti
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
+import ProfileCard from '../components/ProfileCard';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class UserHome extends React.Component {
@@ -12,7 +13,9 @@ class UserHome extends React.Component {
   state = { name: '', Instrument: [], Taste: [], Goal: [], Capability: [] };
 
   // Temporary Data
-  profiles = [{ firstName: 'Bob', lastName: 'Zim', instruments: ['Guitar'], tastes: ['Rock'], goals: ['Occasional'], capabilities: ['Music Theory'] }, { firstName: 'Tim', lastName: 'Goat', instruments: ['Piano', 'Tuba'], tastes: ['Pop Music'], goals: ['Music Career'], capabilities: ['Singing'] }, { firstName: 'Sasha', lastName: 'Cup', instruments: ['Drums'], tastes: ['Classical'], goals: ['Jam Session'], capabilities: ['Singing', 'Music Theory'] }];
+  profiles = [{ firstName: 'Bob', lastName: 'Zim', instruments: ['Guitar'], tastes: ['Rock'], goals: ['Occasional'],
+    capabilities: ['Music Theory'] }, { firstName: 'Tim', lastName: 'Goat', instruments: ['Piano', 'Tuba'], tastes: ['Pop Music'],
+    goals: ['Music Career'], capabilities: ['Singing'] }, { firstName: 'Sasha', lastName: 'Cup', instruments: ['Drums'], tastes: ['Classical'], goals: ['Jam Session'], capabilities: ['Singing', 'Music Theory'] }];
 
   instruments = ['Guitar', 'Piano', 'Drums', 'Clarinet', 'Violin', 'Tuba'];
 
@@ -103,6 +106,7 @@ class UserHome extends React.Component {
             <Form.Dropdown simple text='Instrument'>
               <Dropdown.Menu widths={3}>
                 <Grid columns={5}>
+                  {/* eslint-disable-next-line react/jsx-key */}
                   {this.instruments.map((instrument) => <Grid.Column width={3}>
                     <Checkbox className='Instrument' label={instrument} onChange={this.setTags}/>
                   </Grid.Column>)}
@@ -112,6 +116,7 @@ class UserHome extends React.Component {
             <Form.Dropdown simple text='Taste'>
               <Dropdown.Menu widths={3}>
                 <Grid columns={5}>
+                  {/* eslint-disable-next-line react/jsx-key */}
                   {this.tastes.map((taste) => <Grid.Column width={3}>
                     <Checkbox className='Taste' label={taste} onChange={this.setTags}/>
                   </Grid.Column>)}
@@ -121,15 +126,17 @@ class UserHome extends React.Component {
             <Form.Dropdown simple text='Goals'>
               <Dropdown.Menu widths={3}>
                 <Grid columns={5}>
-                  {this.goals.map((goal) => <Grid.Column width={3}>
+                  {/* eslint-disable-next-line react/jsx-key */}
+                  {this.goals.map((goal) => <Grid.Column width={15}>
                     <Checkbox className='Goal' label={goal} onChange={this.setTags}/>
                   </Grid.Column>)}
                 </Grid>
               </Dropdown.Menu>
             </Form.Dropdown>
-            <Form.Dropdown simple text='Goals'>
+            <Form.Dropdown simple text='Capabilities'>
               <Dropdown.Menu widths={3}>
-                <Grid columns={3}>
+                <Grid columns={5}>
+                  {/* eslint-disable-next-line react/jsx-key */}
                   {this.capabilities.map((capability) => <Grid.Column width={15}>
                     <Checkbox className='Capability' label={capability} onChange={this.setTags}/>
                   </Grid.Column>)}
@@ -139,18 +146,8 @@ class UserHome extends React.Component {
           </Form.Group>
         </Form>
         <Card.Group stackable itemsPerRow="5">
-          {this.filterProfiles(this.profiles).map((profile) => (
-            <Card>
-              <Card.Content>
-                <Card.Header>
-                  {profile.firstName} {profile.lastName}
-                </Card.Header>
-                <Card.Meta>
-                  {profile.instruments}; {profile.tastes}; {profile.goals}; {profile.capabilities}
-                </Card.Meta>
-              </Card.Content>
-            </Card>
-          ))}
+          {/* eslint-disable-next-line react/jsx-key */}
+          {this.filterProfiles(this.profiles).map((profile) => <ProfileCard profile={profile}/>)}
         </Card.Group>
       </Container>
     );
