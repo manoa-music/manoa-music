@@ -7,7 +7,7 @@ import { Stuffs } from '../../api/stuff/Stuff';
 import ProfileCard from '../components/ProfileCard';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class UserHome extends React.Component {
+class AdminHome extends React.Component {
 
   // Required for Rerendering.
   state = { name: '', Instrument: [], Taste: [], Goal: [], Capability: [] };
@@ -147,7 +147,7 @@ class UserHome extends React.Component {
         </Form>
         <Card.Group stackable itemsPerRow="5">
           {/* eslint-disable-next-line react/jsx-key */}
-          {this.filterProfiles(this.profiles).map((profile) => <ProfileCard profile={profile}/>)}
+          {this.filterProfiles(this.profiles).map((profile) => <ProfileCard profile={profile} admin/>)}
         </Card.Group>
       </Container>
     );
@@ -155,7 +155,7 @@ class UserHome extends React.Component {
 }
 
 // Require an array of Stuff documents in the props.
-UserHome.propTypes = {
+AdminHome.propTypes = {
   stuffs: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -170,4 +170,4 @@ export default withTracker(() => {
     stuffs,
     ready,
   };
-})(UserHome);
+})(AdminHome);
