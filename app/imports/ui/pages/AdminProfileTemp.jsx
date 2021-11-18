@@ -21,7 +21,7 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
-class AddStuff extends React.Component {
+class AdminProfileTemp extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
@@ -85,6 +85,7 @@ class AddStuff extends React.Component {
                   Genres: Hip-hop/Rap
                 </Segment>
                 <SubmitField value='Back to Profiles'/>
+                <SubmitField value='Delete'/>
                 <ErrorsField/>
               </Segment>
             </AutoForm>
@@ -95,4 +96,4 @@ class AddStuff extends React.Component {
   }
 }
 
-export default AddStuff;
+export default AdminProfileTemp;
