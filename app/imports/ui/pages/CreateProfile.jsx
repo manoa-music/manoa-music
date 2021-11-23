@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Segment, Header, Card, Image, Icon } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, SubmitField } from 'uniforms-semantic';
+import { Grid, Segment, Header, Card, Image, Icon, SelectField } from 'semantic-ui-react';
+import { AutoField, AutoForm, ErrorsField, SubmitField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -22,12 +22,13 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
 class CreateProfile extends React.Component {
+  data = ['a', 'b', 'c'];
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { name, quantity, condition } = data;
+    const { name, goals, instrument, capabilities, genres } = data;
     const owner = Meteor.user().username;
-    Stuffs.collection.insert({ name, quantity, condition, owner },
+    Stuffs.collection.insert({ name, goals, instrument, capabilities, genres, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -41,13 +42,12 @@ class CreateProfile extends React.Component {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   render() {
     let fRef = null;
-    const gridStyle = { height: '500px' };
     return (
       <Grid container verticalAlign="middle">
         <Grid.Row columns="two">
           <Grid.Column>
             <Card>
-              <Image src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png' wrapped ui={false} />
+              <Image src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png' wrapped ui={false}/>
               <Card.Content>
                 <Card.Description>
                   add a profile picture
@@ -55,41 +55,26 @@ class CreateProfile extends React.Component {
               </Card.Content>
               <Card.Content extra>
                 <a>
-                  <Icon name='spotify' />
+                  <Icon name='spotify'/>
                 </a>
                 <a>
-                  <Icon name='soundcloud' />
+                  <Icon name='soundcloud'/>
                 </a>
                 <a>
-                  <Icon name='youtube' />
+                  <Icon name='youtube'/>
                 </a>
               </Card.Content>
             </Card>
           </Grid.Column>
           <Grid.Column>
             <Header as="h2" textAlign="center">Profile</Header>
-            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
+            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
-                <Segment vertical>
-                  Name:
-                  <input type="text"/>
-                </Segment>
-                <Segment vertical>
-                  Goals:
-                  <input type="text"/>
-                </Segment>
-                <Segment vertical>
-                  Instruments:
-                  <input type="text"/>
-                </Segment>
-                <Segment vertical>
-                  Capabilities:
-                  <input type="text"/>
-                </Segment>
-                <Segment vertical>
-                  Genres:
-                  <input type="text"/>
-                </Segment>
+                <AutoField name="name"/>
+                <SelectField allowedValues={this.data} name="Goals"/>
+                <SelectField allowedValues={this.data} name="Instruments"/>
+                <SelectField allowedValues={this.data} name="Capabilities"/>
+                <SelectField allowedValues={this.data} name="Genres"/>
                 <SubmitField value='Create Profile'/>
                 <ErrorsField/>
               </Segment>
