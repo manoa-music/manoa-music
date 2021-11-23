@@ -21,7 +21,7 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
-class AddStuff extends React.Component {
+class CreateProfile extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
@@ -43,7 +43,7 @@ class AddStuff extends React.Component {
     let fRef = null;
     const gridStyle = { height: '500px' };
     return (
-      <Grid container verticalAlign="middle" style={gridStyle}>
+      <Grid container verticalAlign="middle">
         <Grid.Row columns="two">
           <Grid.Column>
             <Card>
@@ -101,4 +101,4 @@ class AddStuff extends React.Component {
   }
 }
 
-export default AddStuff;
+export default CreateProfile;

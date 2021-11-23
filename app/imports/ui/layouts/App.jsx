@@ -18,6 +18,7 @@ import Signout from '../pages/Signout';
 import UserHome from '../pages/UserHome';
 import AdminProfileTemp from '../pages/AdminProfileTemp';
 import AdminHome from '../pages/AdminHome';
+import CreateProfile from '../pages/CreateProfile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -33,7 +34,7 @@ class App extends React.Component {
             <Route path="/signout" component={Signout}/>
             <ProtectedRoute path="/list" component={ListStuff}/>
             <ProtectedRoute path="/userhome" component={UserHome}/>
-            <ProtectedRoute path="/add" component={AddStuff}/>
+            <ProtectedRoute path="/add" component={CreateProfile}/>
             <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
             <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
             <AdminProtectedRoute path="/adminprofile" component={AdminProfileTemp}/>
