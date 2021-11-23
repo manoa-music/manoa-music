@@ -69,10 +69,10 @@ class CreateProfile extends React.Component {
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
                 <AutoField name="name"/>
-                <SelectField allowedValues={this.data} name="Goals"/>
-                <SelectField allowedValues={this.data} name="Instruments"/>
-                <SelectField allowedValues={this.data} name="Capabilities"/>
-                <SelectField allowedValues={this.data} name="Genres"/>
+                <SelectField checkbox allowedValues={this.data} name="Goals"/>
+                <SelectField checkbox allowedValues={this.data} name="Instruments"/>
+                <SelectField checkbox allowedValues={this.data} name="Capabilities"/>
+                <SelectField checkbox allowedValues={this.data} name="Genres"/>
                 <SubmitField value='Create Profile'/>
                 <ErrorsField/>
               </Segment>
