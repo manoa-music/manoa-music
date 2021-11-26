@@ -18,10 +18,20 @@ class ProfilesCollection {
       pic: String,
       description: String,
       links: Array,
+      'links.$': Object,
+      'links.$.type': {
+        type: String,
+        allowedValues: ['Youtube', 'Spotify', 'Facebook'],
+      },
+      'links.$.link': String,
       instruments: Array,
+      'instruments.$': String,
       genres: Array,
+      'genres.$': String,
       goals: Array,
+      'goals.$': String,
       capabilities: Array,
+      'capabilities.$': String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

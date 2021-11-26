@@ -18,7 +18,7 @@
     {
       "firstName": "Bob",
       "lastName": "Zim",
-      "pic": "../images/meteor-logo.png",
+      "pic": "https://media.istockphoto.com/vectors/music-note-icon-vector-illustration-vector-id1175435360",
       "description": "I'm a student at UH",
       "links": [
         {

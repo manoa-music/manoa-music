@@ -9,7 +9,7 @@ import { Profiles } from '../../api/profile/Profile';
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class UserHome extends React.Component {
 
-  // Required for Rerendering.
+  // Required for Rerendering. Contains Current Filters
   state = { name: '', Instrument: [], Taste: [], Goal: [], Capability: [] };
 
   // Temporary Data
@@ -147,7 +147,7 @@ class UserHome extends React.Component {
         </Form>
         <Card.Group stackable itemsPerRow="5">
           {/* eslint-disable-next-line react/jsx-key */}
-          {this.filterProfiles(this.profiles).map((profile) => <ProfileCard profile={profile}/>)}
+          {this.filterProfiles(this.props.profiles).map((profile) => <ProfileCard profile={profile}/>)}
         </Card.Group>
       </Container>
     );

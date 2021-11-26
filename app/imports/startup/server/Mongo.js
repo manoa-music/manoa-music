@@ -26,8 +26,8 @@ if (Stuffs.collection.find().count() === 0) {
 
 // Initialize the ProfilesCollection if empty.
 if (Profiles.collection.find().count() === 0) {
-  if (Meteor.settings.defaultData) {
+  if (Meteor.settings.defaultProfiles) {
     console.log('Creating default data.');
-    Meteor.settings.defaultData.map(data => addProfile(data));
+    Meteor.settings.defaultProfiles.map(data => addProfile(data));
   }
 }
