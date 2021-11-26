@@ -3,8 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import { Loader, Card, Form, Container, Dropdown, Checkbox, Grid } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Stuffs } from '../../api/stuff/Stuff';
 import ProfileCard from '../components/ProfileCard';
+import { Profiles } from '../../api/profile/Profile';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AdminHome extends React.Component {
@@ -13,9 +13,6 @@ class AdminHome extends React.Component {
   state = { name: '', Instrument: [], Taste: [], Goal: [], Capability: [] };
 
   // Temporary Data
-  profiles = [{ firstName: 'Bob', lastName: 'Zim', instruments: ['Guitar'], tastes: ['Rock'], goals: ['Occasional'],
-    capabilities: ['Music Theory'] }, { firstName: 'Tim', lastName: 'Goat', instruments: ['Piano', 'Tuba'], tastes: ['Pop Music'],
-    goals: ['Music Career'], capabilities: ['Singing'] }, { firstName: 'Sasha', lastName: 'Cup', instruments: ['Drums'], tastes: ['Classical'], goals: ['Jam Session'], capabilities: ['Singing', 'Music Theory'] }];
 
   instruments = ['Guitar', 'Piano', 'Drums', 'Clarinet', 'Violin', 'Tuba'];
 
@@ -147,7 +144,7 @@ class AdminHome extends React.Component {
         </Form>
         <Card.Group stackable itemsPerRow="5">
           {/* eslint-disable-next-line react/jsx-key */}
-          {this.filterProfiles(this.profiles).map((profile) => <ProfileCard profile={profile} admin/>)}
+          {this.filterProfiles(this.props.profiles).map((profile) => <ProfileCard profile={profile} admin/>)}
         </Card.Group>
       </Container>
     );
@@ -156,18 +153,18 @@ class AdminHome extends React.Component {
 
 // Require an array of Stuff documents in the props.
 AdminHome.propTypes = {
-  stuffs: PropTypes.array.isRequired,
+  profiles: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 // Implement subcription and publication for profiles
 export default withTracker(() => {
-  const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+  const subscription = Meteor.subscribe(Profiles.userPublicationName);
   const ready = subscription.ready();
-  const stuffs = Stuffs.collection.find({}).fetch();
+  const profiles = Profiles.collection.find({}).fetch();
   return {
-    stuffs,
+    profiles,
     ready,
   };
 })(AdminHome);

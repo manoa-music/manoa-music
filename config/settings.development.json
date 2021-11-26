@@ -42,6 +42,24 @@
       ]
     }
   ],
+
+  "defaultTags": [
+    {
+      "instruments": [
+        "Guitar"
+      ],
+      "genres": [
+        "Rock"
+      ],
+      "goals": [
+        "Hobbyist"
+      ],
+      "capabilities": [
+        "Editting"
+      ]
+    }
+  ],
+
   "defaultData": [
     {
       "name": "Basket",
