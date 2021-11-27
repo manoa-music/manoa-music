@@ -17,10 +17,11 @@ class ProfileCard extends React.Component {
   }
 
   render() {
+    console.log(this.props.profile.firstName);
     return (
       <Card>
         <Card.Content>
-          <Image src='../images/meteor-logo.png'/>
+          <Image src={this.props.profile.pic}/>
           <Card.Header>
             {this.props.profile.firstName} {this.props.profile.lastName}
           </Card.Header>
@@ -28,9 +29,9 @@ class ProfileCard extends React.Component {
           <Card.Description>
             {this.props.profile.instruments.map((instrument) => `${instrument}, `)}
           </Card.Description>
-          <Card.Header>Genre/Tastes</Card.Header>
+          <Card.Header>Genres</Card.Header>
           <Card.Description>
-            {this.props.profile.tastes.map((taste) => `${taste}, `)}
+            {this.props.profile.genres.map((genre) => `${genre}, `)}
           </Card.Description>
           <Card.Header>Goals</Card.Header>
           <Card.Description>
@@ -52,13 +53,16 @@ ProfileCard.propTypes = {
   profile: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
+    pic: PropTypes.string,
+    description: PropTypes.string,
+    links: PropTypes.array,
     instruments: PropTypes.array,
-    tastes: PropTypes.array,
+    genres: PropTypes.array,
     goals: PropTypes.array,
     capabilities: PropTypes.array,
     _id: PropTypes.string,
   }).isRequired,
-  admin: PropTypes.bool.isRequired,
+  admin: PropTypes.bool,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
