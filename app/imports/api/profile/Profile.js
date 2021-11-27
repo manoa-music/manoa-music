@@ -21,7 +21,7 @@ class ProfilesCollection {
       'links.$': Object,
       'links.$.type': {
         type: String,
-        allowedValues: ['Youtube', 'Spotify', 'Facebook'],
+        allowedValues: ['Youtube', 'Spotify', 'Facebook', 'Soundcloud'],
       },
       'links.$.link': String,
       instruments: Array,
