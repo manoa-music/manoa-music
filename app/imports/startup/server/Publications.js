@@ -31,13 +31,13 @@ Meteor.publish(Profiles.userPublicationName, function () {
   return this.ready();
 });
 
-//Publish Tags
+// Publish Tags
 Meteor.publish(Tags.userPublicationName, function () {
-  if (ths.userID) {
+  if (this.userId) {
     return Tags.collection.find();
   }
   return this.ready();
-})
+});
 
 // alanning:roles publication
 // Recommended code to publish roles for each user.

@@ -46,16 +46,16 @@
   "defaultTags": [
     {
       "instruments": [
-        "Guitar"
+        "Guitar", "Piano", "Drums", "Clarinet", "Violin", "Tuba", "Electric Guitar"
       ],
       "genres": [
-        "Rock"
+        "Rock", "Pop Music", "Jazz", "Rap", "Classical"
       ],
       "goals": [
-        "Hobbyist"
+        "Occasional", "Perfoming Bands", "Jam Session", "Music Career"
       ],
       "capabilities": [
-        "Editting"
+        "Singing", "Music Theory"
       ]
     }
   ],
