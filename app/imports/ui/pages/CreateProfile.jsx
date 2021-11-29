@@ -1,19 +1,33 @@
 import React from 'react';
 import { Grid, Segment, Header, Card, Image, Icon } from 'semantic-ui-react';
-import { AutoField, AutoForm, ErrorsField, SubmitField, SelectField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, SubmitField, SelectField, LongTextField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Profiles } from '../../api/profile/Profile';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
-  name: String,
-  Goals: Array,
-  Instruments: Array,
-  Capabilities: Array,
-  Genres: Array,
+  firstName: String,
+  lastName: String,
+  pic: String,
+  description: String,
+  links: Array,
+  'links.$': Object,
+  'links.$.type': {
+    type: String,
+    allowedValues: ['Youtube', 'Spotify', 'Facebook', 'Soundcloud'],
+  },
+  'links.$.link': String,
+  instruments: Array,
+  'instruments.$': String,
+  genres: Array,
+  'genres.$': String,
+  goals: Array,
+  'goals.$': String,
+  capabilities: Array,
+  'capabilities.$': String,
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -24,9 +38,9 @@ class CreateProfile extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { name, goals, instrument, capabilities, genres } = data;
+    const { firstName, lastName, pic, description, links, instruments, genres, goals, capabilities } = data;
     const owner = Meteor.user().username;
-    Profiles.collection.insert({ name, goals, instrument, capabilities, genres, owner },
+    Profiles.collection.insert({ firstName, lastName, pic, description, links, instruments, genres, goals, capabilities, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -68,11 +82,14 @@ class CreateProfile extends React.Component {
             <Header as="h2" textAlign="center">Profile</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
-                <AutoField name="name"/>
-                <SelectField checkbox allowedValues={this.data} name="Goals"/>
-                <SelectField checkbox allowedValues={this.data} name="Instruments"/>
-                <SelectField checkbox allowedValues={this.data} name="Capabilities"/>
-                <SelectField checkbox allowedValues={this.data} name="Genres"/>
+                <TextField checkbox allowedValues={this.data} name="firstName"/>
+                <TextField checkbox allowedValues={this.data} name="lastName"/>
+                <SelectField checkbox allowedValues={this.data} name="pic"/>
+                <LongTextField checkbox allowedValues={this.data} name="description"/>
+                <SelectField checkbox allowedValues={this.data} name="instruments"/>
+                <SelectField checkbox allowedValues={this.data} name="goals"/>
+                <SelectField checkbox allowedValues={this.data} name="capabilities"/>
+                <SelectField checkbox allowedValues={this.data} name="genres"/>
                 <SubmitField value='Create Profile'/>
                 <ErrorsField/>
               </Segment>
