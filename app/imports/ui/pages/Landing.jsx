@@ -13,8 +13,8 @@ class Landing extends React.Component {
         </Grid.Column>
         <Grid.Column>
           <Link to="/add">
-          <Image size='large' src ='/images/profiles1.png'/>
-          <h3>Customize music profile</h3>
+            <Image size='large' src ='/images/profiles1.png'/>
+            <h3>Customize music profile</h3>
           </Link>
         </Grid.Column>
         <Grid.Column>
