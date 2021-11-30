@@ -16,24 +16,26 @@ class NavBar extends React.Component {
           <Header inverted as='h1'>Manoa Music <Image size="mini" src="https://www.clipartmax.com/png/full/15-153553_green-music-notes-clipart-music-note-clip-art.png"/></Header>
         </Menu.Item>
         {this.props.currentUser ? (
-          [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Profiles</Menu.Item>,
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/userhome" key='list'>List Profiles</Menu.Item>]
+          [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Profiles Template</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/create" key='create'>Create Profile</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/userhome" key='user'>List Profiles</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>List Profiles New</Menu.Item>]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/adminlist" key='admin'>List Profiles (Admin)</Menu.Item>
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (
             <Dropdown id="login-dropdown" text="sign-in" pointing="top right">
               <Dropdown.Menu>
-                <Dropdown.Item id="login-dropdown-sign-in" icon="user" text="Sign In" as={NavLink} exact to="/signin"/>
+                <Dropdown.Item id="login-dropdown-sign-in" icon="user" inverted text="Sign In" as={NavLink} exact to="/signin"/>
                 <Dropdown.Item id="login-dropdown-sign-up" icon="add user" text="Sign Up" as={NavLink} exact to="/signup"/>
               </Dropdown.Menu>
             </Dropdown>
           ) : (
             <Dropdown id="navbar-current-user" text={this.props.currentUser} pointing="top right" icon={'user'}>
               <Dropdown.Menu>
-                <Dropdown.Item id="navbar-sign-out" icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
+                <Dropdown.Item id="navbar-sign-out" icon="sign out" inverted text="Sign Out" as={NavLink} exact to="/signout"/>
               </Dropdown.Menu>
             </Dropdown>
           )}
