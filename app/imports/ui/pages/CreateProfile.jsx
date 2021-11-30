@@ -13,13 +13,13 @@ const formSchema = new SimpleSchema({
   lastName: String,
   pic: String,
   description: String,
-  links: Array,
-  'links.$': Object,
-  'links.$.type': {
-    type: String,
-    allowedValues: ['Youtube', 'Spotify', 'Facebook', 'Soundcloud'],
-  },
-  'links.$.link': String,
+  //links: Array,
+  // 'links.$': Object,
+  // 'links.$.type': {
+  //   type: String,
+  //   allowedValues: ['Youtube', 'Spotify', 'Facebook', 'Soundcloud'],
+  // },
+  // 'links.$.link': String,
   instruments: Array,
   'instruments.$': String,
   genres: Array,
@@ -84,7 +84,7 @@ class CreateProfile extends React.Component {
               <Segment>
                 <TextField checkbox allowedValues={this.data} name="firstName"/>
                 <TextField checkbox allowedValues={this.data} name="lastName"/>
-                <SelectField checkbox allowedValues={this.data} name="pic"/>
+                <TextField checkbox allowedValues={this.data} name="pic"/>
                 <LongTextField checkbox allowedValues={this.data} name="description"/>
                 <SelectField checkbox allowedValues={this.data} name="instruments"/>
                 <SelectField checkbox allowedValues={this.data} name="goals"/>
