@@ -7,9 +7,12 @@ class Landing extends React.Component {
   render() {
     return (
       <Grid centered columns={3}>
-        <Grid.Column>
-          <Image size='large' src ='/images/signin1.png'/>
-          <h3>Sign up and create your own music profile</h3>
+
+        <Grid.Column> <h1> Conncet with UH Manoa Musicians</h1>
+          <Link to= "/signup">
+            <Image size='large' src ='/images/signin1.png'/>
+            <h3>Sign up</h3>
+          </Link>
         </Grid.Column>
         <Grid.Column>
           <Link to="/add">
@@ -18,8 +21,10 @@ class Landing extends React.Component {
           </Link>
         </Grid.Column>
         <Grid.Column>
-          <Image size='large' src ='/images/userhome1.png'/>
-          <h3>Browse other users profiles</h3>
+          <Link to= "/userhome">
+            <Image size='large' src ='/images/userhome1.png'/>
+            <h3>Browse other users profiles</h3>
+          </Link>
         </Grid.Column>
       </Grid>
     );

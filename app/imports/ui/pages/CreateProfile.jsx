@@ -13,7 +13,7 @@ const formSchema = new SimpleSchema({
   lastName: String,
   pic: String,
   description: String,
-  //links: Array,
+  // links: Array,
   // 'links.$': Object,
   // 'links.$.type': {
   //   type: String,
