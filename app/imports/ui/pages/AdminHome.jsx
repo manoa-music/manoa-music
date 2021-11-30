@@ -4,7 +4,7 @@ import { Loader, Card, Form, Container, Dropdown, Checkbox, Grid } from 'semanti
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import ProfileCard from '../components/ProfileCard';
-import { Profiles } from '../../api/profile/Profile';
+import { Profile } from '../../api/profile/Profile';
 import { Tags } from '../../api/tags/Tags';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -164,9 +164,9 @@ AdminHome.propTypes = {
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 // Implement subcription and publication for profiles
 export default withTracker(() => {
-  const profilesSubscription = Meteor.subscribe(Profiles.userPublicationName);
+  const profilesSubscription = Meteor.subscribe(Profile.userPublicationName);
   const profilesReady = profilesSubscription.ready();
-  const profiles = Profiles.collection.find({}).fetch();
+  const profiles = Profile.collection.find({}).fetch();
   const tagsSubscription = Meteor.subscribe(Tags.userPublicationName);
   const tagsReady = tagsSubscription.ready();
   const tags = Tags.collection.find({}).fetch();
