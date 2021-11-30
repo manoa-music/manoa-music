@@ -4,7 +4,7 @@ import { Loader, Card, Form, Container, Dropdown, Checkbox, Grid } from 'semanti
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import ProfileCard from '../components/ProfileCard';
-import { Profiles } from '../../api/profile/Profile';
+import { Profiles } from '../../api/profile/Profiles';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class UserHome extends React.Component {
