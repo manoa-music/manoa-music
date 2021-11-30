@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
-import { Profiles } from '../../api/profile/Profiles';
+import { Profiles } from '../../api/profile/Profile';
+import { Tags } from '../../api/tags/Tags';
 
 /* eslint-disable no-console */
 
@@ -16,6 +17,11 @@ function addProfile(data) {
   Profiles.collection.insert(data);
 }
 
+function addTags(data) {
+  console.log('Tags');
+  Tags.collection.insert(data);
+}
+
 // Initialize the StuffsCollection if empty.
 if (Stuffs.collection.find().count() === 0) {
   if (Meteor.settings.defaultData) {
@@ -27,7 +33,15 @@ if (Stuffs.collection.find().count() === 0) {
 // Initialize the ProfilesCollection if empty.
 if (Profiles.collection.find().count() === 0) {
   if (Meteor.settings.defaultProfiles) {
-    console.log('Creating default data.');
+    console.log('Creating default profiles.');
     Meteor.settings.defaultProfiles.map(data => addProfile(data));
+  }
+}
+
+// Initialize the TagsCollection if empty.
+if (Tags.collection.find().count() === 0) {
+  if (Meteor.settings.defaultTags) {
+    console.log('Creating default tag.');
+    Meteor.settings.defaultTags.map(data => addTags(data));
   }
 }

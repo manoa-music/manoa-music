@@ -42,6 +42,24 @@
       ]
     }
   ],
+
+  "defaultTags": [
+    {
+      "instruments": [
+        "Guitar", "Piano", "Drums", "Clarinet", "Violin", "Tuba", "Electric Guitar"
+      ],
+      "genres": [
+        "Rock", "Pop Music", "Jazz", "Rap", "Classical"
+      ],
+      "goals": [
+        "Occasional", "Perfoming Bands", "Jam Session", "Music Career"
+      ],
+      "capabilities": [
+        "Singing", "Music Theory"
+      ]
+    }
+  ],
+
   "defaultData": [
     {
       "name": "Basket",

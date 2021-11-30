@@ -3,27 +3,16 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /**
- * The ProfilesCollection. It encapsulates state and variable values for stuff.
+ * The TagsCollection. It encapsulates state and variable values for stuff.
  */
-class ProfilesCollection {
+class TagsCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'ProfilesCollection';
+    this.name = 'TagsCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      firstName: String,
-      lastName: String,
-      pic: String,
-      description: String,
-      links: Array,
-      'links.$': Object,
-      'links.$.type': {
-        type: String,
-        allowedValues: ['Youtube', 'Spotify', 'Facebook', 'Soundcloud'],
-      },
-      'links.$.link': String,
       instruments: Array,
       'instruments.$': String,
       genres: Array,
@@ -42,7 +31,7 @@ class ProfilesCollection {
 }
 
 /**
- * The singleton instance of the ProfilesCollection.
- * @type {ProfilesCollection}
+ * The singleton instance of the TagsCollection.
+ * @type {TagsCollection}
  */
-export const Profiles = new ProfilesCollection();
+export const Tags = new TagsCollection();
