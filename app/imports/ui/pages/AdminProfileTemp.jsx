@@ -84,7 +84,7 @@ class AdminProfileTemp extends React.Component {
                 <Segment vertical>
                   Genres: Hip-hop/Rap
                 </Segment>
-                <SubmitField value='Back to Profiles'/>
+                <SubmitField value='Back to ProfileComp'/>
                 <SubmitField value='Delete'/>
                 <ErrorsField/>
               </Segment>

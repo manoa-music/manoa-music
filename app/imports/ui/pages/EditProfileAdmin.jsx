@@ -6,9 +6,9 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { Profiles } from '../../api/profile/Profiles';
+import { Profile } from '../../api/profile/Profile';
 
-const bridge = new SimpleSchema2Bridge(Profiles.schema);
+const bridge = new SimpleSchema2Bridge(Profile.schema);
 
 /** Renders the Page for editing a single document. */
 class EditStuffAdmin extends React.Component {
@@ -16,7 +16,7 @@ class EditStuffAdmin extends React.Component {
   // On successful submit, insert the data.
   submit(data) {
     const { firstName, lastName, pic, description, links, instruments, genres, goals, capabilities, _id } = data;
-    Profiles.collection.update(_id, { $set: { firstName, lastName, pic, description, links, instruments, genres, goals, capabilities } }, (error) => (error ?
+    Profile.collection.update(_id, { $set: { firstName, lastName, pic, description, links, instruments, genres, goals, capabilities } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   }
@@ -31,7 +31,7 @@ class EditStuffAdmin extends React.Component {
     return (
       <Grid container centered>
         <Grid.Column>
-          <Header as="h2" textAlign="center" inverted>Edit Profiles (Admin)</Header>
+          <Header as="h2" textAlign="center" inverted>Edit ProfileComp (Admin)</Header>
           <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
             <Segment>
               <TextField name='firstName'/>
@@ -43,7 +43,7 @@ class EditStuffAdmin extends React.Component {
               <SelectField checkbox allowedValues={this.data} name="instruments"/>
               <SelectField checkbox allowedValues={this.data} name="capabilities"/>
               <SelectField checkbox allowedValues={this.data} name="genres"/>
-              <SubmitField value='Edit Profile'/>
+              <SubmitField value='Edit ProfileComp'/>
               <ErrorsField/>
             </Segment>
           </AutoForm>
@@ -65,11 +65,11 @@ export default withTracker(({ match }) => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Profiles.adminPublicationName);
+  const subscription = Meteor.subscribe(Profile.adminPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the document
-  const doc = Profiles.collection.findOne(documentId);
+  const doc = Profile.collection.findOne(documentId);
   return {
     doc,
     ready,

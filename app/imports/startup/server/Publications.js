@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
-import { Profiles } from '../../api/profile/Profile';
+import { Profile } from '../../api/profile/Profile';
 import { Tags } from '../../api/tags/Tags';
 
 // User-level publication.
@@ -23,18 +23,21 @@ Meteor.publish(Stuffs.adminPublicationName, function () {
   return this.ready();
 });
 
-// Publish Profiles
-Meteor.publish(Profiles.userPublicationName, function () {
+// Publish Profile
+Meteor.publish(Profile.userPublicationName, function () {
   if (this.userId) {
-    return Profiles.collection.find();
+    return Profile.collection.find();
   }
   return this.ready();
 });
 
-Meteor.publish(Profiles.adminPublicationName, function () {
+Meteor.publish(Profile.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Profiles.collection.find();
-    
+    return Profile.collection.find();
+  }
+  return this.ready();
+});
+
 // Publish Tags
 Meteor.publish(Tags.userPublicationName, function () {
   if (this.userId) {

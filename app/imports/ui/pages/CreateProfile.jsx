@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Profiles } from '../../api/profile/Profile';
+import { Profile } from '../../api/profile/Profile';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -40,7 +40,7 @@ class CreateProfile extends React.Component {
   submit(data, formRef) {
     const { firstName, lastName, pic, description, links, instruments, genres, goals, capabilities } = data;
     const owner = Meteor.user().username;
-    Profiles.collection.insert({ firstName, lastName, pic, description, links, instruments, genres, goals, capabilities, owner },
+    Profile.collection.insert({ firstName, lastName, pic, description, links, instruments, genres, goals, capabilities, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -79,7 +79,7 @@ class CreateProfile extends React.Component {
             </Card>
           </Grid.Column>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Profile</Header>
+            <Header as="h2" textAlign="center">ProfileComp</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
                 <TextField checkbox allowedValues={this.data} name="firstName"/>
@@ -90,7 +90,7 @@ class CreateProfile extends React.Component {
                 <SelectField checkbox allowedValues={this.data} name="goals"/>
                 <SelectField checkbox allowedValues={this.data} name="capabilities"/>
                 <SelectField checkbox allowedValues={this.data} name="genres"/>
-                <SubmitField value='Create Profile'/>
+                <SubmitField value='Create ProfileComp'/>
                 <ErrorsField/>
               </Segment>
             </AutoForm>

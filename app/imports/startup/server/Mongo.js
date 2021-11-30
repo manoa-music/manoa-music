@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
-import { Profiles } from '../../api/profile/Profile';
+import { Profile } from '../../api/profile/Profile';
 import { Tags } from '../../api/tags/Tags';
 
 /* eslint-disable no-console */
@@ -14,7 +14,7 @@ function addData(data) {
 // Initialize the database with a default data document, our Project version.
 function addProfile(data) {
   console.log(`  Adding: ${data.firstName} ${data.lastName} Profile`);
-  Profiles.collection.insert(data);
+  Profile.collection.insert(data);
 }
 
 function addTags(data) {
@@ -31,7 +31,7 @@ if (Stuffs.collection.find().count() === 0) {
 }
 
 // Initialize the ProfilesCollection if empty.
-if (Profiles.collection.find().count() === 0) {
+if (Profile.collection.find().count() === 0) {
   if (Meteor.settings.defaultProfiles) {
     console.log('Creating default profiles.');
     Meteor.settings.defaultProfiles.map(data => addProfile(data));

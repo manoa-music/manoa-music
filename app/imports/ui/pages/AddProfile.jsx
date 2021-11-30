@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Profiles } from '../../api/profile/Profiles';
+import { Profile } from '../../api/profile/Profile';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -28,13 +28,6 @@ const formSchema = new SimpleSchema({
   'goals.$': String,
   capabilities: Array,
   'capabilities.$': String,
-  /*
-  condition: {
-    type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
-  },
-   */
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -46,7 +39,7 @@ class AddProfile extends React.Component {
   submit(data, formRef) {
     const { firstName, lastName, pic, description, links, instruments, genres, goals, capabilities } = data;
     const owner = Meteor.user().username;
-    Profiles.collection.insert({ firstName, lastName, pic, description, links, instruments, genres, goals, capabilities, owner },
+    Profile.collection.insert({ firstName, lastName, pic, description, links, instruments, genres, goals, capabilities, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -63,7 +56,7 @@ class AddProfile extends React.Component {
     return (
       <Grid container centered>
         <Grid.Column>
-          <Header as="h2" textAlign="center">Create Profile</Header>
+          <Header as="h2" textAlign="center">Create ProfileComp</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
               <TextField name='firstName'/>
@@ -75,7 +68,7 @@ class AddProfile extends React.Component {
               <SelectField checkbox allowedValues={this.data} name="instruments"/>
               <SelectField checkbox allowedValues={this.data} name="capabilities"/>
               <SelectField checkbox allowedValues={this.data} name="genres"/>
-              <SubmitField value='Create Profile'/>
+              <SubmitField value='Create ProfileComp'/>
               <ErrorsField/>
             </Segment>
           </AutoForm>

@@ -3,7 +3,7 @@ import { Card, Image, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
-class Profile extends React.Component {
+class ProfileComp extends React.Component {
 
   render() {
     console.log(this.props.profile.lastName);
@@ -44,7 +44,7 @@ class Profile extends React.Component {
 }
 
 // Require a document to be passed to this component.
-Profile.propTypes = {
+ProfileComp.propTypes = {
   // profile: PropTypes.object.isRequired,
   profile: PropTypes.shape({
     firstName: PropTypes.string,
@@ -61,4 +61,4 @@ Profile.propTypes = {
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(Profile);
+export default withRouter(ProfileComp);
