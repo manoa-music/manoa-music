@@ -100,7 +100,7 @@ class UserHome extends React.Component {
     console.log(this.props.tags);
     const tags = this.props.tags[0];
     return (
-      <Container>
+      <Container id="user-home-page">
         <Form>
           <Form.Group>
             <Form.Input onChange={this.searchName} placeholder='Name'/>

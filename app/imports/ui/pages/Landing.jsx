@@ -6,9 +6,8 @@ import { Link } from 'react-router-dom';
 class Landing extends React.Component {
   render() {
     return (
-      <Grid centered columns={3}>
-
-        <Grid.Column> <h1> Conncet with UH Manoa Musicians</h1>
+      <Grid centered columns={3} id="landing-page">
+        <Grid.Column> <h1> Connect with UH Manoa Musicians</h1>
           <Link to= "/signup">
             <Image size='large' src ='/images/signin1.png'/>
             <h3>Sign up</h3>
