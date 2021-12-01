@@ -46,10 +46,10 @@ class ProfileAdmin extends React.Component {
         <Card.Content extra>
         </Card.Content>
         <Card.Content extra>
-          <Link to={`/adminedit/${this.props.profile._id}`}>Edit as Admin</Link>
+          <Link id="profile-admin-edit" to={`/adminedit/${this.props.profile._id}`}>Edit as Admin</Link>
         </Card.Content>
         <Card.Content extra>
-          <Button onClick={() => this.deleteProfile(this.props.profile._id)}>Delete</Button>
+          <Button id="profile-admin-delete" onClick={() => this.deleteProfile(this.props.profile._id)}>Delete</Button>
         </Card.Content>
       </Card>
     );

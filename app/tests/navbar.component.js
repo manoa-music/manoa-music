@@ -44,5 +44,14 @@ class NavBar {
   async gotcreateProfilePage(testController) {
     await testController.click('#navbar-create-profile-page');
   }
+
+  async gotolistProfilesPage(testController) {
+    await testController.click('#navbar-list-profiles-page');
+  }
+
+  async gotolistProfilesAdminPage(testController) {
+    await testController.click('#navbar-list-profiles-admin-page');
+  }
 }
+
 export const navBar = new NavBar();
