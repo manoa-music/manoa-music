@@ -39,7 +39,7 @@ test('Test that signin and signout work', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-test('Test the List Profiles page', async (testController) => {
+test('Test the user home page', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotouserHomePage(testController);
@@ -62,7 +62,7 @@ test('Test the User Profile page', async (testController) => {
   await userProfilePage.isDisplayed(testController);
 });
 
-test.only('Test the Admin Edit Page', async (testController) => {
+test('Test the Admin Edit Page', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials2.username, credentials2.password);
   await navBar.gotolistProfilesAdminPage(testController);
