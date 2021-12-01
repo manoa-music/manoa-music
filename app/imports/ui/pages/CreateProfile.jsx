@@ -55,7 +55,7 @@ class CreateProfile extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container verticalAlign="middle">
+      <Grid container verticalAlign="middle" id = 'create-profile-page'>
         <Grid.Row columns="two">
           <Grid.Column>
             <Card>
@@ -82,10 +82,10 @@ class CreateProfile extends React.Component {
             <Header as="h2" textAlign="center">ProfileComp</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
-                <TextField checkbox allowedValues={this.data} name="firstName"/>
-                <TextField checkbox allowedValues={this.data} name="lastName"/>
-                <TextField checkbox allowedValues={this.data} name="pic"/>
-                <LongTextField checkbox allowedValues={this.data} name="description"/>
+                <TextField id="create-firstName" checkbox allowedValues={this.data} name="firstName"/>
+                <TextField id="create-lastName" checkbox allowedValues={this.data} name="lastName"/>
+                <TextField id="create-pic" checkbox allowedValues={this.data} name="pic"/>
+                <LongTextField id="create-description" checkbox allowedValues={this.data} name="description"/>
                 <SelectField checkbox allowedValues={this.data} name="instruments"/>
                 <SelectField checkbox allowedValues={this.data} name="goals"/>
                 <SelectField checkbox allowedValues={this.data} name="capabilities"/>

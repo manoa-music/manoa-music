@@ -16,8 +16,8 @@ class NavBar extends React.Component {
           <Header inverted as='h1'>Manoa Music <Image size="mini" src="https://www.clipartmax.com/png/full/15-153553_green-music-notes-clipart-music-note-clip-art.png"/></Header>
         </Menu.Item>
         {this.props.currentUser ? (
-          [<Menu.Item as={NavLink} activeClassName="active" exact to="/add" key='add'>Profiles Template</Menu.Item>,
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/create" key='create'>Create Profile</Menu.Item>,
+          [<Menu.Item id = 'navbar-create-profile-page' as={NavLink} activeClassName="active" exact to="/add" key='add'>Create Profile</Menu.Item>,
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/create" key='create'>Create Profile Template</Menu.Item>,
             <Menu.Item id="navbar-user-home" as={NavLink} activeClassName="active" exact to="/userhome" key='user'>List Profiles</Menu.Item>,
             <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>List Profiles New</Menu.Item>]
         ) : ''}
