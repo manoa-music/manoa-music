@@ -20,7 +20,7 @@ class UserProfile extends React.Component {
     const data = Profile.collection.find().fetch();
     console.log(this.props.doc);
     return (
-      <Container>
+      <Container id="user-profile-page">
         <Header as="h2" textAlign="center" inverted>User Profile</Header>
         <Item.Group model={this.props.doc}>
           <ProfileComment profile={data}/>

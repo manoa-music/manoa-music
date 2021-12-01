@@ -29,21 +29,21 @@ class EditStuffAdmin extends React.Component {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   renderPage() {
     return (
-      <Grid container centered>
+      <Grid container centered id="admin-edit-page">
         <Grid.Column>
           <Header as="h2" textAlign="center" inverted>Edit ProfileComp (Admin)</Header>
           <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
             <Segment>
-              <TextField name='firstName'/>
-              <TextField name='lastName'/>
-              <LongTextField name ='description'/>
-              <TextField name='pic'/>
+              <TextField id="editPage-firstName" name='firstName'/>
+              <TextField id="editPage-lastName" name='lastName'/>
+              <LongTextField id="editPage-description" name ='description'/>
+              <TextField id="editPage-pic" name='pic'/>
               <SelectField checkbox allowedValues={this.data} name="goals"/>
               <SelectField checkbox allowedValues={this.data} name="links"/>
               <SelectField checkbox allowedValues={this.data} name="instruments"/>
               <SelectField checkbox allowedValues={this.data} name="capabilities"/>
               <SelectField checkbox allowedValues={this.data} name="genres"/>
-              <SubmitField value='Edit ProfileComp'/>
+              <SubmitField id="editPage-submit" value='Edit ProfileComp'/>
               <ErrorsField/>
             </Segment>
           </AutoForm>

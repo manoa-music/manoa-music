@@ -9,7 +9,7 @@ class ProfileComp extends React.Component {
     console.log(this.props.profile.lastName);
     return (
       <Card centered>
-        <Link to={`/userprofile/${this.props.profile._id}`}><Image src={this.props.profile.pic}/></Link>
+        <Link id="profile-image-link" to={`/userprofile/${this.props.profile._id}`}><Image src={this.props.profile.pic}/></Link>
         <Card.Content>
           <Card.Header>
             {this.props.profile.firstName} {this.props.profile.lastName}
