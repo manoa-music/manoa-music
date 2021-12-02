@@ -34,7 +34,13 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
 class CreateProfile extends React.Component {
-  data = ['a', 'b', 'c'];
+  instruments = ['Guitar', 'Piano', 'Drums', 'Clarinet', 'Violin', 'Tuba'];
+
+  tastes = ['Rock', 'Pop Music', 'Jazz', 'Rap', 'Classical'];
+
+  goals = ['Occasional', 'Perfoming Bands', 'Jam Session', 'Music Career'];
+
+  capabilities = ['Singing', 'Music Theory'];
 
   // On submit, insert the data.
   submit(data, formRef) {
@@ -86,10 +92,10 @@ class CreateProfile extends React.Component {
                 <TextField id="create-lastName" checkbox allowedValues={this.data} name="lastName"/>
                 <TextField id="create-pic" checkbox allowedValues={this.data} name="pic"/>
                 <LongTextField id="create-description" checkbox allowedValues={this.data} name="description"/>
-                <SelectField checkbox allowedValues={this.data} name="instruments"/>
-                <SelectField checkbox allowedValues={this.data} name="goals"/>
-                <SelectField checkbox allowedValues={this.data} name="capabilities"/>
-                <SelectField checkbox allowedValues={this.data} name="genres"/>
+                <SelectField checkbox allowedValues={this.instruments} name="instruments"/>
+                <SelectField checkbox allowedValues={this.goals} name="goals"/>
+                <SelectField checkbox allowedValues={this.capabilities} name="capabilities"/>
+                <SelectField checkbox allowedValues={this.tastes} name="genres"/>
                 <SubmitField value='Create ProfileComp'/>
                 <ErrorsField/>
               </Segment>

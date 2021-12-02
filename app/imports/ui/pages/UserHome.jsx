@@ -46,7 +46,7 @@ class UserHome extends React.Component {
       let tasteBool = true;
       if (this.state.Taste.length > 0) {
         this.state.Taste.forEach((taste) => {
-          if (profile.tastes.indexOf(taste) === -1) {
+          if (profile.genres.indexOf(taste) === -1) {
             tasteBool = false;
           }
         });
@@ -114,7 +114,7 @@ class UserHome extends React.Component {
                 </Grid>
               </Dropdown.Menu>
             </Form.Dropdown>
-            <Form.Dropdown simple text='Taste'>
+            <Form.Dropdown simple text='Genres'>
               <Dropdown.Menu widths={3}>
                 <Grid columns={5}>
                   {/* eslint-disable-next-line react/jsx-key */}
