@@ -1,3 +1,7 @@
 .color-template {
   background-color: #024731;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
