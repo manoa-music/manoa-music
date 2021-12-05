@@ -7,30 +7,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Profile } from '../../api/profile/Profile';
 
-// Create a schema to specify the structure of the data to appear in the form.
-const formSchema = new SimpleSchema({
-  firstName: String,
-  lastName: String,
-  pic: String,
-  description: String,
-  // links: Array,
-  // 'links.$': Object,
-  // 'links.$.type': {
-  //   type: String,
-  //   allowedValues: ['Youtube', 'Spotify', 'Facebook', 'Soundcloud'],
-  // },
-  // 'links.$.link': String,
-  instruments: Array,
-  'instruments.$': String,
-  genres: Array,
-  'genres.$': String,
-  goals: Array,
-  'goals.$': String,
-  capabilities: Array,
-  'capabilities.$': String,
-});
-
-const bridge = new SimpleSchema2Bridge(formSchema);
+const bridge = new SimpleSchema2Bridge(Profile.schema);
 
 /** Renders the Page for adding a document. */
 class CreateProfile extends React.Component {
