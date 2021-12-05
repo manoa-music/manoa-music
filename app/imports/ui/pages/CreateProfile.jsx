@@ -21,9 +21,9 @@ class CreateProfile extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { firstName, lastName, pic, description, links, instruments, genres, goals, capabilities } = data;
+    const { firstName, lastName, pic, description, link_1, link_2, link_3, instruments, genres, goals, capabilities } = data;
     const owner = Meteor.user().username;
-    Profile.collection.insert({ firstName, lastName, pic, description, links, instruments, genres, goals, capabilities, owner },
+    Profile.collection.insert({ firstName, lastName, pic, description, link_1, link_2, link_3, instruments, genres, goals, capabilities, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -65,10 +65,13 @@ class CreateProfile extends React.Component {
             <Header as="h2" textAlign="center">ProfileComp</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
-                <TextField id="create-firstName" checkbox allowedValues={this.data} name="firstName"/>
-                <TextField id="create-lastName" checkbox allowedValues={this.data} name="lastName"/>
-                <TextField id="create-pic" checkbox allowedValues={this.data} name="pic"/>
-                <LongTextField id="create-description" checkbox allowedValues={this.data} name="description"/>
+                <TextField id="create-firstName" name="firstName"/>
+                <TextField id="create-lastName" name="lastName"/>
+                <TextField id="create-pic" name="pic"/>
+                <LongTextField id="create-description" name="description"/>
+                <TextField name="link_1"/>
+                <TextField name="link_2"/>
+                <TextField name="link_3"/>
                 <SelectField checkbox allowedValues={this.instruments} name="instruments"/>
                 <SelectField checkbox allowedValues={this.goals} name="goals"/>
                 <SelectField checkbox allowedValues={this.capabilities} name="capabilities"/>
