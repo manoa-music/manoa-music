@@ -1,10 +1,13 @@
 import React from 'react';
 import { Grid, Segment, Header, Card, Image, Icon } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SubmitField, SelectField, LongTextField, TextField } from 'uniforms-semantic';
+import { withTracker } from 'meteor/react-meteor-data';
+import PropTypes from 'prop-types';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Profile } from '../../api/profile/Profile';
+import { Tags } from '../../api/tags/Tags';
 
 const bridge = new SimpleSchema2Bridge(Profile.schema);
 
@@ -37,6 +40,7 @@ class CreateProfile extends React.Component {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   render() {
     let fRef = null;
+    const tags = this.props.tags[0];
     return (
       <Grid container verticalAlign="middle" id='create-profile-page'>
         <Grid.Row columns="two">
@@ -72,10 +76,10 @@ class CreateProfile extends React.Component {
                 <TextField name="link_1"/>
                 <TextField name="link_2"/>
                 <TextField name="link_3"/>
-                <SelectField checkbox allowedValues={this.instruments} name="instruments"/>
-                <SelectField checkbox allowedValues={this.goals} name="goals"/>
-                <SelectField checkbox allowedValues={this.capabilities} name="capabilities"/>
-                <SelectField checkbox allowedValues={this.tastes} name="genres"/>
+                <SelectField checkbox allowedValues={tags.instruments} name="instruments"/>
+                <SelectField checkbox allowedValues={tags.goals} name="goals"/>
+                <SelectField checkbox allowedValues={tags.capabilities} name="capabilities"/>
+                <SelectField checkbox allowedValues={tags.genres} name="genres"/>
                 <SubmitField/>
                 <ErrorsField/>
               </Segment>
@@ -87,4 +91,17 @@ class CreateProfile extends React.Component {
   }
 }
 
-export default CreateProfile;
+CreateProfile.propTypes = {
+  tags: PropTypes.array.isRequired,
+  tagsReady: PropTypes.bool.isRequired,
+};
+
+export default withTracker(() => {
+  const tagsSubscription = Meteor.subscribe(Tags.userPublicationName);
+  const tagsReady = tagsSubscription.ready();
+  const tags = Tags.collection.find({}).fetch();
+  return {
+    tags,
+    tagsReady,
+  };
+})(CreateProfile);
