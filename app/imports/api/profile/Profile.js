@@ -22,11 +22,11 @@ class ProfilesCollection {
       link_3: { type: String, optional: true },
       instruments: Array,
       'instruments.$': String,
-      genres: Array,
+      genres: { type: Array, optional: true },
       'genres.$': String,
-      goals: Array,
+      goals: { type: Array, optional: true },
       'goals.$': String,
-      capabilities: Array,
+      capabilities: { type: Array, optional: true },
       'capabilities.$': String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
