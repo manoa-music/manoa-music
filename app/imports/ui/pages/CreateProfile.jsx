@@ -4,13 +4,13 @@ import { AutoForm, ErrorsField, SubmitField, SelectField, LongTextField, TextFie
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import SimpleSchema from 'simpl-schema';
 import { Profile } from '../../api/profile/Profile';
 
 const bridge = new SimpleSchema2Bridge(Profile.schema);
 
 /** Renders the Page for adding a document. */
 class CreateProfile extends React.Component {
+
   instruments = ['Guitar', 'Piano', 'Drums', 'Clarinet', 'Violin', 'Tuba'];
 
   tastes = ['Rock', 'Pop Music', 'Jazz', 'Rap', 'Classical'];
@@ -38,7 +38,7 @@ class CreateProfile extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container verticalAlign="middle" id = 'create-profile-page'>
+      <Grid container verticalAlign="middle" id='create-profile-page'>
         <Grid.Row columns="two">
           <Grid.Column>
             <Card>
