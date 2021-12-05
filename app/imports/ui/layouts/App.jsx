@@ -30,24 +30,26 @@ class App extends React.Component {
       <Router>
         <div>
           <NavBar/>
-          <Switch>
-            <Route exact path="/" component={Landing}/>
-            <Route path="/signin" component={Signin}/>
-            <Route path="/signup" component={Signup}/>
-            <Route path="/signout" component={Signout}/>
-            <ProtectedRoute path="/list" component={ListProfiles}/>
-            <ProtectedRoute path="/userhome" component={UserHome}/>
-            <ProtectedRoute path="/add" component={CreateProfile}/>
-            <ProtectedRoute path="/userprofile" component={UserProfile}/>
-            <ProtectedRoute path="/add" component={AddStuff}/>
-            <ProtectedRoute path="/create" component={AddProfile}/>
-            <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
-            <AdminProtectedRoute path="/adminlist" component={ListProfilesAdmin}/>
-            <AdminProtectedRoute path="/adminedit/:_id" component={EditProfileAdmin}/>
-            <AdminProtectedRoute path="/adminprofile" component={AdminProfileTemp}/>
-            <AdminProtectedRoute path="/adminhome" component={AdminHome}/>
-            <Route component={NotFound}/>
-          </Switch>
+          <div style={{paddingBottom: '100px'}}>
+            <Switch>
+              <Route exact path="/" component={Landing}/>
+              <Route path="/signin" component={Signin}/>
+              <Route path="/signup" component={Signup}/>
+              <Route path="/signout" component={Signout}/>
+              <ProtectedRoute path="/list" component={ListProfiles}/>
+              <ProtectedRoute path="/userhome" component={UserHome}/>
+              <ProtectedRoute path="/add" component={CreateProfile}/>
+              <ProtectedRoute path="/userprofile" component={UserProfile}/>
+              <ProtectedRoute path="/add" component={AddStuff}/>
+              <ProtectedRoute path="/create" component={AddProfile}/>
+              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <AdminProtectedRoute path="/adminlist" component={ListProfilesAdmin}/>
+              <AdminProtectedRoute path="/adminedit/:_id" component={EditProfileAdmin}/>
+              <AdminProtectedRoute path="/adminprofile" component={AdminProfileTemp}/>
+              <AdminProtectedRoute path="/adminhome" component={AdminHome}/>
+              <Route component={NotFound}/>
+            </Switch>
+          </div>
           <Footer/>
         </div>
       </Router>

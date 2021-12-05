@@ -76,7 +76,7 @@ class CreateProfile extends React.Component {
                 <SelectField checkbox allowedValues={this.goals} name="goals"/>
                 <SelectField checkbox allowedValues={this.capabilities} name="capabilities"/>
                 <SelectField checkbox allowedValues={this.tastes} name="genres"/>
-                <SubmitField value='Create ProfileComp'/>
+                <SubmitField/>
                 <ErrorsField/>
               </Segment>
             </AutoForm>
