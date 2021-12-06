@@ -22,6 +22,7 @@ import EditProfileAdmin from '../pages/EditProfileAdmin';
 import ListProfiles from '../pages/ListProfiles';
 import AddProfile from '../pages/AddProfile';
 import UserProfile from '../pages/UserProfile';
+import AddTags from '../pages/AddTags';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -47,6 +48,7 @@ class App extends React.Component {
               <AdminProtectedRoute path="/adminedit/:_id" component={EditProfileAdmin}/>
               <AdminProtectedRoute path="/adminprofile" component={AdminProfileTemp}/>
               <AdminProtectedRoute path="/adminhome" component={AdminHome}/>
+              <AdminProtectedRoute path="/addTags" component={AddTags}/>
               <Route component={NotFound}/>
             </Switch>
           </div>
