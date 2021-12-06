@@ -36,9 +36,11 @@ class CreateProfile extends React.Component {
         }
       });
   }
+
   render() {
-    return ( this.props.tagsReady ) ? this.renderPage() : <Loader active>Getting Data</Loader>;
+    return (this.props.tagsReady) ? this.renderPage() : <Loader active>Getting Data</Loader>;
   }
+
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   renderPage() {
     let fRef = null;

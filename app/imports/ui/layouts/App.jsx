@@ -30,7 +30,7 @@ class App extends React.Component {
       <Router>
         <div>
           <NavBar/>
-          <div style={{paddingBottom: '100px'}}>
+          <div style={{ paddingBottom: '100px' }}>
             <Switch>
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
