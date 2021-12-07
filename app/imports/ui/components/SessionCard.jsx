@@ -32,7 +32,7 @@ class SessionCard extends React.Component {
           </Card.Description>
           <Card.Header>Organization Info</Card.Header>
           <Card.Description>
-            {this.props.session.info.map((infos) => `${infos}, `)}
+            {this.props.session.info}
           </Card.Description>
         </Card.Content>
       </Card>

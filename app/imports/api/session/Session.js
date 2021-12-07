@@ -30,6 +30,6 @@ class SessionCollection {
 
 /**
  * The singleton instance of the StuffsCollection.
- * @type {SessionCollectionn}
+ * @type {SessionCollection}
  */
 export const Sessions = new SessionCollection();
