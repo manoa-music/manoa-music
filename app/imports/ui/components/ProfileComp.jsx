@@ -1,7 +1,9 @@
 import React from 'react';
-import { Card, Image, Icon } from 'semantic-ui-react';
+import { Card, Image, Icon, Feed } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
+import Review from './Review';
+import AddReview from './AddReview';
 
 class ProfileComp extends React.Component {
 
@@ -27,7 +29,7 @@ class ProfileComp extends React.Component {
             {this.props.profile.goals.map((goal) => `${goal}, `)}
           </Card.Description>
         </Card.Content>
-        <Card.Content extra>
+        <Card.Content>
           <a>
             <Icon name='spotify'/>
           </a>
@@ -37,6 +39,14 @@ class ProfileComp extends React.Component {
           <a>
             <Icon name='youtube'/>
           </a>
+        </Card.Content>
+        <Card.Content extra>
+          <Feed>
+            {this.props.reviews.map((review, index) => <Review key={index} review={review}/>)}
+          </Feed>
+        </Card.Content>
+        <Card.Content extra>
+          <AddReview owner={this.props.profile.lastName} contactId={this.props.profile._id}/>
         </Card.Content>
       </Card>
     );
@@ -57,7 +67,10 @@ ProfileComp.propTypes = {
     goals: PropTypes.array,
     capabilities: PropTypes.array,
     _id: PropTypes.string,
+    // Testing
+    // accOwner: PropTypes.string,
   }).isRequired,
+  reviews: PropTypes.array.isRequired,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.

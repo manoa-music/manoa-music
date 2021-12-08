@@ -30,7 +30,7 @@ class App extends React.Component {
       <Router>
         <div>
           <NavBar/>
-          <div style={{paddingBottom: '100px'}}>
+          <div style={{ paddingBottom: '100px' }}>
             <Switch>
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
@@ -38,8 +38,8 @@ class App extends React.Component {
               <Route path="/signout" component={Signout}/>
               <ProtectedRoute path="/list" component={ListProfiles}/>
               <ProtectedRoute path="/userhome" component={UserHome}/>
-              <ProtectedRoute path="/add" component={CreateProfile}/>
-              <ProtectedRoute path="/userprofile" component={UserProfile}/>
+              <ProtectedRoute path="/createprofile" component={CreateProfile}/>
+              <ProtectedRoute path="/userprofile/:_id" component={UserProfile}/>
               <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/create" component={AddProfile}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
