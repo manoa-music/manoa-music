@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import ProfileComp from '../components/ProfileComp';
 import { Profile } from '../../api/profile/Profile';
 import { Tags } from '../../api/tags/Tags';
-import { Reviews } from '../../api/review/Review';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class UserHome extends React.Component {
@@ -152,7 +151,7 @@ class UserHome extends React.Component {
           {this.filterProfiles(this.props.profiles).map((profile, index) => <ProfileComp
             key={index}
             profile={profile}
-            reviews={this.props.reviews.filter(review => (review.contactId === profile._id))}/>)}
+          />)}
         </Card.Group>
       </Container>
     );
@@ -165,8 +164,6 @@ UserHome.propTypes = {
   profilesReady: PropTypes.bool.isRequired,
   tags: PropTypes.array.isRequired,
   tagsReady: PropTypes.bool.isRequired,
-  reviews: PropTypes.array.isRequired,
-  reviewsReady: PropTypes.bool.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -178,15 +175,10 @@ export default withTracker(() => {
   const tagsSubscription = Meteor.subscribe(Tags.userPublicationName);
   const tagsReady = tagsSubscription.ready();
   const tags = Tags.collection.find({}).fetch();
-  const reviewsSubscription = Meteor.subscribe(Reviews.userPublicationName);
-  const reviewsReady = reviewsSubscription.ready();
-  const reviews = Reviews.collection.find({}).fetch();
   return {
     profiles,
     profilesReady,
     tags,
     tagsReady,
-    reviews,
-    reviewsReady,
   };
 })(UserHome);

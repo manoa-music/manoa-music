@@ -1,5 +1,5 @@
 import React from 'react';
-import { Item, Icon, Feed } from 'semantic-ui-react';
+import { Item, Icon, Feed, Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import AddReview from './AddReview';
@@ -39,12 +39,18 @@ class ProfileComment extends React.Component {
             <Icon name='youtube'/>
           </a>
         </Item.Content>
-        <Item.Content>
-          <Feed>
-            {this.props.reviews.map((review, index) => <Review key={index} review={review}/>)}
-          </Feed>
-          <AddReview owner={this.props.profile.lastName} contactId={this.props.profile._id}/>
-        </Item.Content>
+        <Card>
+          <Card.Content>
+            <Feed>
+              {this.props.reviews.map((review, index) => <Review key={index}
+                review={review}
+                reviews={this.props.reviews.filter(message => (message.contactId === review._id))}/>)}
+            </Feed>
+            <Card.Content extra>
+              <AddReview contactId={this.props.profile._id}/>
+            </Card.Content>
+          </Card.Content>
+        </Card>
       </Item>
     );
   }

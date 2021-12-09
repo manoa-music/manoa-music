@@ -12,7 +12,7 @@ class ReviewsCollection {
     this.schema = new SimpleSchema({
       review: String,
       contactId: String,
-      owner: String,
+      name: String,
       createdAt: Date,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

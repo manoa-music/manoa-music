@@ -7,11 +7,11 @@ import { withRouter } from 'react-router-dom';
 class Review extends React.Component {
   render() {
     return (
-      <Feed.Event >
+      <Feed.Event>
         <Feed.Content>
-          <Feed.Date content={this.props.review.createdAt.toLocaleDateString('en-US')} />
+          <Feed.Date content={this.props.review.createdAt.toLocaleDateString('en-US')}/>
           <Feed.Summary>
-            {this.props.review.review}
+            {this.props.review.review} written by {this.props.review.name}
           </Feed.Summary>
         </Feed.Content>
       </Feed.Event>

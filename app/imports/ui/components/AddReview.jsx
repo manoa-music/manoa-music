@@ -15,8 +15,8 @@ class AddReview extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { review, owner, contactId, createdAt } = data;
-    Reviews.collection.insert({ review, owner, contactId, createdAt },
+    const { review, name, contactId, createdAt } = data;
+    Reviews.collection.insert({ review, name, contactId, createdAt },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -33,10 +33,10 @@ class AddReview extends React.Component {
     return (
       <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
         <Segment>
-          <TextField label="Add a review" name='review'/>
+          <TextField label="Leave a Message" name='review'/>
+          <TextField label="Name" name='name'/>
           <SubmitField value='Submit'/>
           <ErrorsField/>
-          <HiddenField name='owner' value={this.props.owner}/>
           <HiddenField name='contactId' value={this.props.contactId}/>
           <HiddenField name='createdAt' value={new Date()}/>
         </Segment>
@@ -46,7 +46,6 @@ class AddReview extends React.Component {
 }
 
 AddReview.propTypes = {
-  owner: PropTypes.string.isRequired,
   contactId: PropTypes.string.isRequired,
 };
 
