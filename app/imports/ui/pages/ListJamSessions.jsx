@@ -20,7 +20,7 @@ class ListJamSessions extends React.Component {
       <Container>
         <Header as="h2" textAlign="center">List Jam Sessions</Header>
         <Card.Group>
-          {this.props.sessions.map((session, index) => <SessionCard key={index} session={session} />)}
+          {this.props.sessions.map((session, index) => <SessionCard key={index} session={session} Sessions={Sessions} />)}
         </Card.Group>
       </Container>
     );

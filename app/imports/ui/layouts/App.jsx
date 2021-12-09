@@ -41,7 +41,8 @@ class App extends React.Component {
               <Route path="/signout" component={Signout}/>
               <ProtectedRoute path="/list" component={ListProfiles}/>
               <ProtectedRoute path="/userhome" component={UserHome}/>
-              <ProtectedRoute path="/add" component={CreateProfile}/>
+              <ProtectedRoute path="/createprofile" component={CreateProfile}/>
+              <ProtectedRoute path="/userprofile/:_id" component={UserProfile}/>
               <ProtectedRoute path="/createsession" component={CreateSession}/>
               <ProtectedRoute path="/listjamsessions" component={ListJamSessions}/>
               <ProtectedRoute path="/userprofile" component={UserProfile}/>

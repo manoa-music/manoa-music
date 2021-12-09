@@ -3,6 +3,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Profile } from '../../api/profile/Profile';
 import { Tags } from '../../api/tags/Tags';
+import { Reviews } from '../../api/review/Review';
 import { Sessions } from '../../api/session/Session';
 
 // User-level publication.
@@ -11,6 +12,15 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Stuffs.collection.find({ owner: username });
+  }
+  return this.ready();
+});
+
+// Publish Review
+Meteor.publish(Reviews.userPublicationName, function () {
+  if (this.userId) {
+    // const username = Meteor.users.findOne(this.userId).username;
+    return Reviews.collection.find();
   }
   return this.ready();
 });

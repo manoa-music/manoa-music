@@ -27,7 +27,7 @@ class ProfileComp extends React.Component {
             {this.props.profile.goals.map((goal) => `${goal}, `)}
           </Card.Description>
         </Card.Content>
-        <Card.Content extra>
+        <Card.Content>
           <a>
             <Icon name='spotify'/>
           </a>
@@ -57,6 +57,8 @@ ProfileComp.propTypes = {
     goals: PropTypes.array,
     capabilities: PropTypes.array,
     _id: PropTypes.string,
+    // Testing
+    // accOwner: PropTypes.string,
   }).isRequired,
 };
 

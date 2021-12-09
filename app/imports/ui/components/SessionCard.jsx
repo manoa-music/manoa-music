@@ -1,10 +1,15 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Button, Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class SessionCard extends React.Component {
+
+  deleteSession = (docID) => {
+    console.log(`item to delete: ${docID}`);
+    this.props.Sessions.collection.remove(docID);
+  }
 
   render() {
     console.log(this.props.session.name);
@@ -35,6 +40,9 @@ class SessionCard extends React.Component {
             {this.props.session.info}
           </Card.Description>
         </Card.Content>
+        <Card.Content extra>
+          <Button onClick={() => this.deleteSession(this.props.session._id)}>Delete</Button>
+        </Card.Content>
       </Card>
     );
   }
@@ -49,7 +57,9 @@ SessionCard.propTypes = {
     genres: PropTypes.string,
     capabilities: PropTypes.string,
     info: PropTypes.string,
+    _id: PropTypes.string,
   }).isRequired,
+  Sessions: PropTypes.object.isRequired,
   admin: PropTypes.bool,
 };
 

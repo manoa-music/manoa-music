@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Loader, Card, Form, Container, Dropdown, Checkbox, Grid } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import ProfileCard from '../components/ProfileCard';
+import ProfileComp from '../components/ProfileComp';
 import { Profile } from '../../api/profile/Profile';
 import { Tags } from '../../api/tags/Tags';
 
@@ -146,9 +146,12 @@ class UserHome extends React.Component {
             </Form.Dropdown>
           </Form.Group>
         </Form>
-        <Card.Group stackable itemsPerRow="5">
+        <Card.Group stackable itemsPerRow="3">
           {/* eslint-disable-next-line react/jsx-key */}
-          {this.filterProfiles(this.props.profiles).map((profile) => <ProfileCard profile={profile}/>)}
+          {this.filterProfiles(this.props.profiles).map((profile, index) => <ProfileComp
+            key={index}
+            profile={profile}
+          />)}
         </Card.Group>
       </Container>
     );
