@@ -29,13 +29,13 @@ class ProfileComment extends React.Component {
           <Item.Meta>
             {this.props.profile.goals.map((goal) => `${goal}, `)}
           </Item.Meta>
-          <a>
+          <a href={this.props.profile.link_1}>
             <Icon name='spotify'/>
           </a>
-          <a>
+          <a href={this.props.profile.link_2}>
             <Icon name='soundcloud'/>
           </a>
-          <a>
+          <a to={this.props.profile.link_3}>
             <Icon name='youtube'/>
           </a>
         </Item.Content>
@@ -69,6 +69,9 @@ ProfileComment.propTypes = {
     goals: PropTypes.array,
     capabilities: PropTypes.array,
     _id: PropTypes.string,
+    link_1: PropTypes.string,
+    link_2: PropTypes.string,
+    link_3: PropTypes.string,
   }).isRequired,
   reviews: PropTypes.array.isRequired,
 };
