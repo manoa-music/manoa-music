@@ -43,8 +43,7 @@ class ProfileComment extends React.Component {
           <Card.Content>
             <Feed>
               {this.props.reviews.map((review, index) => <Review key={index}
-                review={review}
-                reviews={this.props.reviews.filter(message => (message.contactId === review._id))}/>)}
+                review={review}/>)}
             </Feed>
             <Card.Content extra>
               <AddReview contactId={this.props.profile._id}/>

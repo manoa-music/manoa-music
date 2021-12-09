@@ -12,7 +12,7 @@ class UserProfile extends React.Component {
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+    return (this.props.ready && this.props.reviewReady) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
   // Render the page once subscriptions have been received.
@@ -39,6 +39,7 @@ UserProfile.propTypes = {
   doc: PropTypes.object,
   // profiles: PropTypes.object.isRequired,
   ready: PropTypes.bool.isRequired,
+  reviewReady: PropTypes.bool.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -47,7 +48,8 @@ export default withTracker(({ match }) => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Profile.userPublicationName);
   // Determine if the subscription is ready
-  const ready = subscription.ready() && reviewsSubscription.ready();
+  const ready = subscription.ready();
+  const reviewReady = reviewsSubscription.ready();
   // Get the Stuff documents
   const profiles = Profile.collection.find({}).fetch();
   // Added match into withTracker
@@ -59,5 +61,6 @@ export default withTracker(({ match }) => {
     reviews,
     doc,
     ready,
+    reviewReady,
   };
 })(UserProfile);
