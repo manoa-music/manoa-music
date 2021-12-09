@@ -8,22 +8,28 @@ class Landing extends React.Component {
     return (
       <div>
         <h1 className ="ui center aligned header" > Connect with UH Manoa Musicians</h1>
-        <Grid centered columns={3} id="landing-page">
+        <Grid centered columns={4} id="landing-page">
           <Grid.Column>
             <Link to= "/signup">
-              <Image class= "ui top aligned tiny image" src ='/images/signin1.png'/>
+              <Image class= "ui top aligned tiny image" src ='/images/signup.png'/>
               <h3>Sign up</h3>
             </Link>
           </Grid.Column>
           <Grid.Column>
-            <Link to="/add">
-              <Image class="ui middle aligned tiny image" src ='/images/profiles1.png'/>
-              <h3>Customize music profile</h3>
+            <Link to="/createprofile">
+              <Image class="ui middle aligned tiny image" src ='/images/createProfile.png'/>
+              <h3>Create profile</h3>
+            </Link>
+          </Grid.Column>
+          <Grid.Column>
+            <Link to="/listjamsessions">
+              <Image class="ui middle aligned tiny image" src ='/images/jamSession.png'/>
+              <h3>Jam Session</h3>
             </Link>
           </Grid.Column>
           <Grid.Column>
             <Link to= "/userhome">
-              <Image class="ui bottom aligned tiny image" src ='/images/userhome1.png'/>
+              <Image class="ui bottom aligned tiny image" src ='/images/listProfile.png'/>
               <h3>Browse other users profiles</h3>
             </Link>
           </Grid.Column>

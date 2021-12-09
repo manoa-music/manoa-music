@@ -70,7 +70,7 @@ class CreateProfile extends React.Component {
             </Card>
           </Grid.Column>
           <Grid.Column>
-            <Header as="h2" textAlign="center">ProfileComp</Header>
+            <Header as="h2" textAlign="center">Create Profile</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
                 <TextField name="firstName"/>
