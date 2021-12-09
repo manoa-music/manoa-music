@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Loader, Card, Form, Container, Dropdown, Checkbox, Grid } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import ProfileCard from '../components/ProfileCard';
 import { Profile } from '../../api/profile/Profile';
 import { Tags } from '../../api/tags/Tags';
@@ -143,6 +144,7 @@ class AdminHome extends React.Component {
               </Dropdown.Menu>
             </Form.Dropdown>
           </Form.Group>
+          <Link to='/addTags'>Add Tags</Link>
         </Form>
         <Card.Group stackable itemsPerRow="5">
           {/* eslint-disable-next-line react/jsx-key */}

@@ -22,6 +22,9 @@ import EditProfileAdmin from '../pages/EditProfileAdmin';
 import ListProfiles from '../pages/ListProfiles';
 import AddProfile from '../pages/AddProfile';
 import UserProfile from '../pages/UserProfile';
+import AddTags from '../pages/AddTags';
+import CreateSession from '../pages/CreateSession';
+import ListJamSessions from '../pages/ListJamSessions';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -40,6 +43,9 @@ class App extends React.Component {
               <ProtectedRoute path="/userhome" component={UserHome}/>
               <ProtectedRoute path="/createprofile" component={CreateProfile}/>
               <ProtectedRoute path="/userprofile/:_id" component={UserProfile}/>
+              <ProtectedRoute path="/createsession" component={CreateSession}/>
+              <ProtectedRoute path="/listjamsessions" component={ListJamSessions}/>
+              <ProtectedRoute path="/userprofile" component={UserProfile}/>
               <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/create" component={AddProfile}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
@@ -47,6 +53,7 @@ class App extends React.Component {
               <AdminProtectedRoute path="/adminedit/:_id" component={EditProfileAdmin}/>
               <AdminProtectedRoute path="/adminprofile" component={AdminProfileTemp}/>
               <AdminProtectedRoute path="/adminhome" component={AdminHome}/>
+              <AdminProtectedRoute path="/addTags" component={AddTags}/>
               <Route component={NotFound}/>
             </Switch>
           </div>

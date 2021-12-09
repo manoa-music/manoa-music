@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/stuff/Stuff.js';
+import { Stuffs } from '../../api/stuff/Stuff';
 import { Profile } from '../../api/profile/Profile';
 import { Tags } from '../../api/tags/Tags';
 

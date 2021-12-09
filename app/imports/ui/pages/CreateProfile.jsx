@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Card, Image, Icon } from 'semantic-ui-react';
+import { Grid, Segment, Header, Card, Image, Icon, Loader } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SubmitField, SelectField, LongTextField, TextField } from 'uniforms-semantic';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -37,8 +37,12 @@ class CreateProfile extends React.Component {
       });
   }
 
-  // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   render() {
+    return (this.props.tagsReady) ? this.renderPage() : <Loader active>Getting Data</Loader>;
+  }
+
+  // Render the form. Use Uniforms: https://github.com/vazco/uniforms
+  renderPage() {
     let fRef = null;
     const tags = this.props.tags[0];
     return (
