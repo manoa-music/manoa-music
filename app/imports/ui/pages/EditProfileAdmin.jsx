@@ -15,8 +15,8 @@ class EditStuffAdmin extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const { firstName, lastName, pic, description, links, instruments, genres, goals, capabilities, _id } = data;
-    Profile.collection.update(_id, { $set: { firstName, lastName, pic, description, links, instruments, genres, goals, capabilities } }, (error) => (error ?
+    const { firstName, lastName, pic, description, instruments, genres, goals, capabilities, _id, link_1, link_2, link_3 } = data;
+    Profile.collection.update(_id, { $set: { firstName, lastName, pic, description, instruments, genres, goals, capabilities, link_1, link_2, link_3 } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   }
@@ -39,10 +39,12 @@ class EditStuffAdmin extends React.Component {
               <LongTextField id="editPage-description" name ='description'/>
               <TextField id="editPage-pic" name='pic'/>
               <SelectField checkbox allowedValues={this.data} name="goals"/>
-              <SelectField checkbox allowedValues={this.data} name="links"/>
               <SelectField checkbox allowedValues={this.data} name="instruments"/>
               <SelectField checkbox allowedValues={this.data} name="capabilities"/>
               <SelectField checkbox allowedValues={this.data} name="genres"/>
+              <TextField name='link_1'/>
+              <TextField name='link_2'/>
+              <TextField name='link_3'/>
               <SubmitField id="editPage-submit" value='Edit ProfileComp'/>
               <ErrorsField/>
             </Segment>

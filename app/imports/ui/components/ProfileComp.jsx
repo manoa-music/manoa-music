@@ -5,6 +5,11 @@ import { withRouter, Link } from 'react-router-dom';
 
 class ProfileComp extends React.Component {
 
+  deleteProfile = (docID) => {
+    console.log(`item to delete: ${docID}`);
+    this.props.Profiles.collection.remove(docID);
+  }
+
   render() {
     console.log(this.props.profile.lastName);
     return (
@@ -28,13 +33,13 @@ class ProfileComp extends React.Component {
           </Card.Description>
         </Card.Content>
         <Card.Content>
-          <a>
+          <a href={this.props.profile.link_1}>
             <Icon name='spotify'/>
           </a>
-          <a>
+          <a href={this.props.profile.link_2}>
             <Icon name='soundcloud'/>
           </a>
-          <a>
+          <a to={this.props.profile.link_3}>
             <Icon name='youtube'/>
           </a>
         </Card.Content>
@@ -51,15 +56,18 @@ ProfileComp.propTypes = {
     lastName: PropTypes.string,
     pic: PropTypes.string,
     description: PropTypes.string,
-    links: PropTypes.array,
     instruments: PropTypes.array,
     genres: PropTypes.array,
     goals: PropTypes.array,
     capabilities: PropTypes.array,
     _id: PropTypes.string,
+    link_1: PropTypes.string,
+    link_2: PropTypes.string,
+    link_3: PropTypes.string,
     // Testing
     // accOwner: PropTypes.string,
   }).isRequired,
+  Profiles: PropTypes.object.isRequired,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.

@@ -4,9 +4,10 @@ import { Loader, Card, Form, Container, Dropdown, Checkbox, Grid } from 'semanti
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import ProfileCard from '../components/ProfileCard';
+// import ProfileCard from '../components/ProfileCard';
 import { Profile } from '../../api/profile/Profile';
 import { Tags } from '../../api/tags/Tags';
+import ProfileAdmin from '../components/ProfileAdmin';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class AdminHome extends React.Component {
@@ -148,7 +149,7 @@ class AdminHome extends React.Component {
         </Form>
         <Card.Group stackable itemsPerRow="5">
           {/* eslint-disable-next-line react/jsx-key */}
-          {this.filterProfiles(this.props.profiles).map((profile) => <ProfileCard profile={profile} admin/>)}
+          {this.filterProfiles(this.props.profiles).map((profile) => <ProfileAdmin profile={profile} admin/>)}
         </Card.Group>
       </Container>
     );
