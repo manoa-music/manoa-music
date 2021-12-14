@@ -149,7 +149,7 @@ class AdminHome extends React.Component {
         </Form>
         <Card.Group stackable itemsPerRow="5">
           {/* eslint-disable-next-line react/jsx-key */}
-          {this.filterProfiles(this.props.profiles).map((profile) => <ProfileAdmin profile={profile} admin/>)}
+          {this.filterProfiles(this.props.profiles).map((profile) => <ProfileAdmin profile={profile} Profiles={Profile} admin/>)}
         </Card.Group>
       </Container>
     );
