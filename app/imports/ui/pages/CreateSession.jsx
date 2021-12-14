@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, SubmitField, TextField, SelectField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -11,7 +11,13 @@ import { Sessions } from '../../api/session/Session';
 const formSchema = new SimpleSchema({
   name: String,
   location: String,
-  time: String,
+  time: Number,
+  period: Array,
+  'period.$': String,
+  dateMonth: Array,
+  'dateMonth.$': String,
+  dateDay: Array,
+  'dateDay.$': String,
   genres: String,
   capabilities: String,
   info: String,
@@ -22,11 +28,17 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 /** Renders the Page for adding a document. */
 class CreateSession extends React.Component {
 
+  period = ['AM', 'PM'];
+
+  dateMonth = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+
+  dateDay = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'];
+
   // On submit, insert the data.
   submit(data, formRef) {
-    const { name, location, time, genres, capabilities, info } = data;
+    const { name, location, time, period, dateMonth, dateDay, genres, capabilities, info } = data;
     const owner = Meteor.user().username;
-    Sessions.collection.insert({ name, location, time, genres, capabilities, info, owner },
+    Sessions.collection.insert({ name, location, time, period, dateMonth, dateDay, genres, capabilities, info, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -48,7 +60,10 @@ class CreateSession extends React.Component {
             <Segment>
               <TextField name='name'/>
               <TextField name='location'/>
-              <TextField name ='time'/>
+              <TextField name='time'/>
+              <SelectField checkbox allowedValues={this.period} name='period'/>
+              <SelectField checkbox allowedValues={this.dateMonth} name='dateMonth'/>
+              <SelectField checkbox allowedValues={this.dateDay} name='dateDay'/>
               <TextField name='genres'/>
               <TextField name='capabilities'/>
               <TextField name='info'/>
