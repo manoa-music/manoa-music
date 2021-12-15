@@ -33,9 +33,9 @@ class AddReview extends React.Component {
     return (
       <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
         <Segment>
-          <TextField label="Leave a Message" name='review'/>
-          <TextField label="Name" name='name'/>
-          <SubmitField value='Submit'/>
+          <TextField id="userProfile-message" label="Leave a Message" name='review'/>
+          <TextField id="userProfile-Name" label="Name" name='name'/>
+          <SubmitField id="userProfile-submit" value='Submit'/>
           <ErrorsField/>
           <HiddenField name='contactId' value={this.props.contactId}/>
           <HiddenField name='createdAt' value={new Date()}/>

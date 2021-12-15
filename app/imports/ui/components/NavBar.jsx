@@ -17,15 +17,15 @@ class NavBar extends React.Component {
         </Menu.Item>
         {this.props.currentUser ? (
           [
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/createsession" key='add'>Create Jam Session</Menu.Item>,
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/listjamsessions" key='add'>List Jam Sessions</Menu.Item>,
+            <Menu.Item id="navbar-create-jam-session-page" as={NavLink} activeClassName="active" exact to="/createsession" key='add'>Create Jam Session</Menu.Item>,
+            <Menu.Item id="navbar-list-jam-sessions-page" as={NavLink} activeClassName="active" exact to="/listjamsessions" key='add'>List Jam Sessions</Menu.Item>,
             <Menu.Item id="navbar-user-home" as={NavLink} activeClassName="active" exact to="/userhome" key='user'>List Profiles</Menu.Item>,
           ]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           [
             <Menu.Item id="navbar-list-profiles-admin-page" as={NavLink} activeClassName="active" exact to="/adminhome" key='admin'>List Profiles (Admin)</Menu.Item>,
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/addTags" key='admin'>Add Tags (Admin)</Menu.Item>,
+            <Menu.Item id="navbar-add-tags-page" as={NavLink} activeClassName="active" exact to="/addTags" key='admin'>Add Tags (Admin)</Menu.Item>,
           ]
         ) : ''}
         <Menu.Item position="right">

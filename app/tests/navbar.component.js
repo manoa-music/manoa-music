@@ -45,12 +45,20 @@ class NavBar {
     await testController.click('#navbar-create-profile-page');
   }
 
-  async gotolistProfilesPage(testController) {
-    await testController.click('#navbar-list-profiles-page');
-  }
-
   async gotolistProfilesAdminPage(testController) {
     await testController.click('#navbar-list-profiles-admin-page');
+  }
+
+  async gotocreateJamSessionPage(testController) {
+    await testController.click('#navbar-create-jam-session-page');
+  }
+
+  async gotoaddTagsPage(testController) {
+    await testController.click('#navbar-add-tags-page');
+  }
+
+  async gotolistJamSessionsPage(testController) {
+    await testController.click('#navbar-list-jam-sessions-page');
   }
 }
 

@@ -9,9 +9,9 @@ import PropTypes from 'prop-types';
 class Landing extends React.Component {
   render() {
     return (
-      <div>
+      <div id="landing-page">
         <h1 className ="ui center aligned header" > Connect with UH Manoa Musicians</h1>
-        <Grid centered columns={4} id="landing-page">
+        <Grid centered columns={4}>
           {this.props.currentUser === '' ? (
             <Grid.Column>
               <Link to= "/signup">
@@ -21,7 +21,7 @@ class Landing extends React.Component {
             </Grid.Column>
           ) : ('')}
           <Grid.Column>
-            <Link to="/createprofile">
+            <Link id="landing-create-profile-page" to="/createprofile">
               <Image class="ui middle aligned tiny image" src ='/images/createProfile.png'/>
               <h3>Create profile</h3>
             </Link>

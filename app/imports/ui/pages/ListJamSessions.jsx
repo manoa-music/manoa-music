@@ -17,7 +17,7 @@ class ListJamSessions extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <Container>
+      <Container id="list-jam-sessions-page">
         <Header as="h2" textAlign="center">List Jam Sessions</Header>
         <Card.Group>
           {this.props.sessions.map((session, index) => <SessionCard key={index} session={session} Sessions={Sessions} />)}

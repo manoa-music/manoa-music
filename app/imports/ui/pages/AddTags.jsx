@@ -25,7 +25,7 @@ function ValidateName(props) {
     );
   }
   return (
-    <Button onClick={() => {
+    <Button id="addTags-add" onClick={() => {
       // eslint-disable-next-line react/prop-types
       Tags.collection.update(Tags.collection.findOne()._id, { $set: { [props.tag]: props.arrayToAdd } });
       swal('Success', 'Tag Added', 'success');
@@ -78,12 +78,12 @@ class AddTags extends React.Component {
       inputEmpty = true;
     }
     return (
-      <Container>
+      <Container id="add-tags-page">
         <Header as="h2" textAlign="center">Add Tags</Header>
         <Dropdown selection placeholder="Instruments" defaultValue="instruments" options={availableTags} onChange={(e, dropdown) => {
           this.currentTag = dropdown.value;
         }}/>
-        <Input placeholder="Tag Name" onChange={this.setTagName}/>
+        <Input id="addTags-add" placeholder="Tag Name" onChange={this.setTagName}/>
         <ValidateName alreadyIn={alreadyIn} tag={this.currentTag} arrayToAdd={result} inputEmpty={inputEmpty}/>
       </Container>
     );

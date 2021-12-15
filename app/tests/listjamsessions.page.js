@@ -1,8 +1,8 @@
 import { Selector } from 'testcafe';
 
-class UserHomePage {
+class ListJamSessionsPage {
   constructor() {
-    this.pageId = '#user-home-page';
+    this.pageId = '#list-jam-sessions-page';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -10,10 +10,6 @@ class UserHomePage {
   async isDisplayed(testController) {
     await testController.expect(this.pageSelector.exists).ok();
   }
-
-  async clickUserImage(testController) {
-    await testController.click('#profile-image');
-  }
 }
 
-export const userHomePage = new UserHomePage();
+export const listJamSessionsPage = new ListJamSessionsPage();

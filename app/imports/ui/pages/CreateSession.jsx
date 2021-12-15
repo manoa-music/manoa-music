@@ -53,21 +53,21 @@ class CreateSession extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container centered>
+      <Grid container centered id='create-jam-page'>
         <Grid.Column>
           <Header as="h2" textAlign="center">Create Jam Session</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
-              <TextField name='name'/>
-              <TextField name='location'/>
-              <TextField name='time'/>
+              <TextField id="createJam-name" name='name'/>
+              <TextField id="createJam-location" name='location'/>
+              <TextField id="createJam-time" name='time'/>
               <SelectField checkbox allowedValues={this.period} name='period'/>
               <SelectField checkbox allowedValues={this.dateMonth} name='dateMonth'/>
               <SelectField checkbox allowedValues={this.dateDay} name='dateDay'/>
-              <TextField name='genres'/>
-              <TextField name='capabilities'/>
-              <TextField name='info'/>
-              <SubmitField value='Create Jam Session'/>
+              <TextField id="createJam-name" name='genres'/>
+              <TextField id="createJam-capabilities" name='capabilities'/>
+              <TextField id="createJam-info" name='info'/>
+              <SubmitField id="createJam-submit" value='Create Jam Session'/>
               <ErrorsField/>
             </Segment>
           </AutoForm>

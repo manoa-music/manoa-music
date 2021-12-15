@@ -73,10 +73,10 @@ class CreateProfile extends React.Component {
             <Header as="h2" textAlign="center">Create Profile</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)}>
               <Segment>
-                <TextField name="firstName"/>
-                <TextField name="lastName"/>
-                <TextField name="pic"/>
-                <LongTextField name="description"/>
+                <TextField id="create-firstName" name="firstName"/>
+                <TextField id="create-lastName" name="lastName"/>
+                <TextField id="create-pic" name="pic"/>
+                <LongTextField id="create-description" name="description"/>
                 <TextField name="link_1"/>
                 <TextField name="link_2"/>
                 <TextField name="link_3"/>
