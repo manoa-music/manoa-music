@@ -33,13 +33,13 @@ class ProfileAdmin extends React.Component {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <a>
+          <a href={this.props.profile.link_1}>
             <Icon name='spotify'/>
           </a>
-          <a>
+          <a href={this.props.profile.link_2}>
             <Icon name='soundcloud'/>
           </a>
-          <a>
+          <a to={this.props.profile.link_3}>
             <Icon name='youtube'/>
           </a>
         </Card.Content>
@@ -64,12 +64,14 @@ ProfileAdmin.propTypes = {
     lastName: PropTypes.string,
     pic: PropTypes.string,
     description: PropTypes.string,
-    links: PropTypes.array,
     instruments: PropTypes.array,
     genres: PropTypes.array,
     goals: PropTypes.array,
     capabilities: PropTypes.array,
     _id: PropTypes.string,
+    link_1: PropTypes.string,
+    link_2: PropTypes.string,
+    link_3: PropTypes.string,
   }).isRequired,
   Profiles: PropTypes.object.isRequired,
 };

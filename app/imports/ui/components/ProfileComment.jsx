@@ -5,6 +5,44 @@ import { withRouter } from 'react-router-dom';
 import AddReview from './AddReview';
 import Review from './Review';
 
+function whichSite(str) {
+  if (str.includes('youtube')) {
+    return 'youtube';
+  }
+  if (str.includes('spotify')) {
+    return 'spotify';
+  }
+  if (str.includes('soundcloud')) {
+    return 'soundcloud';
+  }
+  if (str.includes('twitter')) {
+    return 'twitter';
+  }
+  return 'question circle';
+}
+
+function QueryLinks(props) {
+  const arr = [];
+  if (props.link1.length > 0) {
+    arr.push(props.link1);
+  }
+  if (props.link2.length > 0) {
+    arr.push(props.link2);
+  }
+  if (props.link3.length > 0) {
+    arr.push(props.link3);
+  }
+  return (
+    <div>
+      {arr.map((str) =>
+        // eslint-disable-next-line react/jsx-key,implicit-arrow-linebreak
+        (<a href={str}>
+          <Icon name={whichSite(str)}/>
+        </a>))}
+    </div>
+  );
+}
+
 class ProfileComment extends React.Component {
   render() {
     return (
@@ -29,15 +67,7 @@ class ProfileComment extends React.Component {
           <Item.Meta>
             {this.props.profile.goals.map((goal) => `${goal}, `)}
           </Item.Meta>
-          <a>
-            <Icon name='spotify'/>
-          </a>
-          <a>
-            <Icon name='soundcloud'/>
-          </a>
-          <a>
-            <Icon name='youtube'/>
-          </a>
+          <QueryLinks link1={this.props.profile.link_1} link2={this.props.profile.link_2} link3={this.props.profile.link_3}/>
         </Item.Content>
         <Card>
           <Card.Content>
@@ -69,8 +99,17 @@ ProfileComment.propTypes = {
     goals: PropTypes.array,
     capabilities: PropTypes.array,
     _id: PropTypes.string,
+    link_1: PropTypes.string,
+    link_2: PropTypes.string,
+    link_3: PropTypes.string,
   }).isRequired,
   reviews: PropTypes.array.isRequired,
+};
+
+QueryLinks.propTypes = {
+  link1: PropTypes.string,
+  link2: PropTypes.string,
+  link3: PropTypes.string,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.

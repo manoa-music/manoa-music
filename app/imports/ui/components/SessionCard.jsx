@@ -21,7 +21,7 @@ class SessionCard extends React.Component {
           </Card.Header>
           <Card.Header>Time</Card.Header>
           <Card.Description>
-            {this.props.session.time}
+            {this.props.session.dateMonth}/{this.props.session.dateDay},{this.props.session.time}{this.props.session.period}
           </Card.Description>
           <Card.Header>Location</Card.Header>
           <Card.Description>
@@ -54,6 +54,9 @@ SessionCard.propTypes = {
     name: PropTypes.string,
     location: PropTypes.string,
     time: PropTypes.string,
+    period: PropTypes.array,
+    dateMonth: PropTypes.array,
+    dateDay: PropTypes.array,
     genres: PropTypes.string,
     capabilities: PropTypes.string,
     info: PropTypes.string,

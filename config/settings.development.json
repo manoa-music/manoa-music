@@ -20,12 +20,8 @@
       "lastName": "Zim",
       "pic": "https://media.istockphoto.com/vectors/music-note-icon-vector-illustration-vector-id1175435360",
       "description": "I'm a student at UH",
-      "links": [
-        {
-          "type": "Youtube",
-          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        }
-      ],
+      "link_1": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "link_2": "https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC?autoplay=true",
       "instruments": [
         "Guitar",
         "Violin"
