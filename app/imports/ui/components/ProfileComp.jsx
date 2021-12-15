@@ -3,6 +3,44 @@ import { Card, Image, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
+function whichSite(str) {
+  if (str.includes('youtube')) {
+    return 'youtube';
+  }
+  if (str.includes('spotify')) {
+    return 'spotify';
+  }
+  if (str.includes('soundcloud')) {
+    return 'soundcloud';
+  }
+  if (str.includes('twitter')) {
+    return 'twitter';
+  }
+  return 'question circle';
+}
+
+function QueryLinks(props) {
+  const arr = [];
+  if (props.link1.length > 0){
+    arr.push(props.link1);
+  }
+  if (props.link2.length > 0) {
+    arr.push(props.link2);
+  }
+  if (props.link3.length > 0) {
+    arr.push(props.link3);
+  }
+  return (
+    <div>
+      {arr.map((str) =>
+        // eslint-disable-next-line react/jsx-key,implicit-arrow-linebreak
+        (<a href={str}>
+          <Icon name={whichSite(str)}/>
+        </a>))}
+    </div>
+  );
+}
+
 class ProfileComp extends React.Component {
 
   deleteProfile = (docID) => {
@@ -33,15 +71,7 @@ class ProfileComp extends React.Component {
           </Card.Description>
         </Card.Content>
         <Card.Content>
-          <a href={this.props.profile.link_1}>
-            <Icon name='spotify'/>
-          </a>
-          <a href={this.props.profile.link_2}>
-            <Icon name='soundcloud'/>
-          </a>
-          <a to={this.props.profile.link_3}>
-            <Icon name='youtube'/>
-          </a>
+          <QueryLinks link1={this.props.profile.link_1} link2={this.props.profile.link_2} link3={this.props.profile.link_3}/>
         </Card.Content>
       </Card>
     );
@@ -68,6 +98,12 @@ ProfileComp.propTypes = {
     // accOwner: PropTypes.string,
   }).isRequired,
   Profiles: PropTypes.object.isRequired,
+};
+
+QueryLinks.propTypes = {
+  link1: PropTypes.string,
+  link2: PropTypes.string,
+  link3: PropTypes.string,
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.
