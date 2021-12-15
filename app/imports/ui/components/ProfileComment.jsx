@@ -23,7 +23,7 @@ function whichSite(str) {
 
 function QueryLinks(props) {
   const arr = [];
-  if (props.link1.length > 0) {
+  if (props.link1.length > 0){
     arr.push(props.link1);
   }
   if (props.link2.length > 0) {
