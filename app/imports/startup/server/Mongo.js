@@ -45,4 +45,3 @@ if (Tags.collection.find().count() === 0) {
     Meteor.settings.defaultTags.map(data => addTags(data));
   }
 }
-

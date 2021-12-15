@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, SubmitField, TextField, SelectField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, SubmitField, TextField, RadioField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -61,9 +61,9 @@ class CreateSession extends React.Component {
               <TextField name='name'/>
               <TextField name='location'/>
               <TextField name='time'/>
-              <SelectField checkbox allowedValues={this.period} name='period'/>
-              <SelectField checkbox allowedValues={this.dateMonth} name='dateMonth'/>
-              <SelectField checkbox allowedValues={this.dateDay} name='dateDay'/>
+              <RadioField allowedValues={this.period} name='period'/>
+              <RadioField allowedValues={this.dateMonth} name='dateMonth'/>
+              <RadioField allowedValues={this.dateDay} name='dateDay'/>
               <TextField name='genres'/>
               <TextField name='capabilities'/>
               <TextField name='info'/>
