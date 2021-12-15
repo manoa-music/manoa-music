@@ -40,6 +40,282 @@
       "capabilities": [
         "Sing"
       ]
+    },
+    {
+      "firstName": "Anat",
+      "lastName": "Amar",
+      "pic": "https://i.pinimg.com/564x/47/c4/09/47c409ff1d57de82c2891c02340a3161.jpg",
+      "description": "I'm a UH Manoa student, majoring in Computer Science",
+      "links": [
+        {
+          "type": "Youtube",
+          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      ],
+      "instruments": [
+        "Guitar"
+      ],
+      "genres": [
+        "Rock"
+      ],
+      "goals": [
+        "Occasional"
+      ],
+      "capabilities": [
+        "Sing"
+      ]
+    },
+    {
+      "firstName": "Michael",
+      "lastName": "Burns",
+      "pic": "https://i.pinimg.com/564x/45/21/3c/45213ce272a6c3fcdb08730b92b00c5b.jpg",
+      "description": "I'm a nursing student at UH Manoa",
+      "links": [
+        {
+          "type": "Youtube",
+          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      ],
+      "instruments": [
+        "Piano","Guitar"
+      ],
+      "genres": [
+        "Rock",
+        "Classical"
+      ],
+      "goals": [
+        "Occasional"
+      ],
+      "capabilities": [
+        "Sing"
+      ]
+    },
+    {
+      "firstName": "Finn",
+      "lastName": "Gardener",
+      "pic": "https://i.pinimg.com/736x/42/6c/65/426c6523d37cb5c1f0d53d9a3f0b17f2.jpg",
+      "description": "Im semi-decent at guitar, piano, ukulele, bass, and I also own a tambourine and pan flute and also a sleigh bells.H",
+      "links": [
+        {
+          "type": "Youtube",
+          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      ],
+      "instruments": [
+        "Guitar"
+      ],
+      "genres": [
+        "Rock"
+      ],
+      "goals": [
+        "Jam Session","Occasional"
+      ],
+      "capabilities": [
+        "Sing"
+      ]
+    },
+    {
+      "firstName": "Philip",
+      "lastName": "Johanson",
+      "pic": "https://i.pinimg.com/564x/45/e7/8e/45e78e407cfc9a13be3c4ad350f630ed.jpg",
+      "description": "Hi, I'm a Software engineer professor at UH Manoa",
+      "links": [
+        {
+          "type": "Youtube",
+          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      ],
+      "instruments": [
+        "Guitar"
+      ],
+      "genres": [
+        "Rock",
+        "Classical"
+      ],
+      "goals": [
+        "Perfoming Bands"
+      ],
+      "capabilities": [
+        "Sing"
+      ]
+    },
+    {
+      "firstName": "Rick",
+      "lastName": "Novak",
+      "pic": "https://www.gannett-cdn.com/-mm-/afb631ada762a4e30fc873cace8899ed1fbfe754/c=67-0-2933-1619/local/-/media/2016/12/19/USATODAY/USATODAY/636177884435501117-SINGPK001-TP4-00078R.JPG?width=660&height=373&fit=crop&format=pjpg&auto=webp",
+      "description": "Hi, my name is Rick, nice to meet you all",
+      "links": [
+        {
+          "type": "Youtube",
+          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      ],
+      "instruments": [
+        "Guitar",
+        "Violin"
+      ],
+      "genres": [
+        "Rock",
+        "Classical"
+      ],
+      "goals": [
+        "Perfoming Band"
+      ],
+      "capabilities": [
+        "Sing"
+      ]
+    },
+    {
+      "firstName": "Maria",
+      "lastName": "Broasbet",
+      "pic": "https://www.becomesingers.com/wp-content/uploads/2020/10/Women-Improve-Singing.webp",
+      "description": "Hello everyone, My name is Maria and I love to sing",
+      "links": [
+        {
+          "type": "Youtube",
+          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      ],
+      "instruments": [
+        "Guitar"
+      ],
+      "genres": [
+        "Rock",
+        "Classical"
+      ],
+
+      "goals": [
+        "Perfoming Bands"
+      ],
+      "capabilities": [
+        "Sing"
+      ]
+    },
+    {
+      "firstName": "Roger",
+      "lastName": "Lum",
+      "pic": "https://www.musicgrotto.com/wp-content/uploads/2018/05/man-singing-falsetto-on-stage.jpg.webp",
+      "description": "HI, My name is Roger, I love singing and playing the guitar",
+      "links": [
+        {
+          "type": "Youtube",
+          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      ],
+      "instruments": [
+        "Guitar"
+      ],
+      "genres": [
+        "Classical"
+      ],
+      "goals": [
+        "erfoming Bands", "Occasional"
+      ],
+      "capabilities": [
+        "Sing"
+      ]
+    },
+    {
+      "firstName": "Jeff",
+      "lastName": "Johanson",
+      "pic": "https://previews.123rf.com/images/otnaydur/otnaydur1305/otnaydur130500010/19428384-a-young-man-playing-piano-on-the-stage.jpg?fj=1",
+      "description": "My favorite Instrument is the Piano. Let's be friends",
+      "links": [
+        {
+          "type": "Youtube",
+          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      ],
+      "instruments": [
+        "Piano",
+        "Violin"
+      ],
+      "genres": [
+        "Classical"
+      ],
+      "goals": [
+        "Proffesinal"
+      ],
+      "capabilities": [
+        "Sing"
+      ]
+    },
+    {
+      "firstName": "Ronald",
+      "lastName": "Smith",
+      "pic": "https://images.unsplash.com/photo-1618673747378-7e0d3561371a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80",
+      "description": "HI guys, I'm a Law student at UH Manoa, Looking to make some friends and maybe form a band",
+      "links": [
+        {
+          "type": "Youtube",
+          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      ],
+      "instruments": [
+        "Guitar"
+      ],
+      "genres": [
+        "Rock",
+        "Classical"
+      ],
+      "goals": [
+        "Hobby"
+      ],
+      "capabilities": [
+        "Sing", "Music Theory"
+      ]
+    },
+    {
+      "firstName": "Ashley",
+      "lastName": "Miller",
+      "pic": "https://previews.123rf.com/images/noonie/noonie1504/noonie150400016/39377488-teenage-girl-playing-guitar.jpg",
+      "description": "My name is Ashley, I play guitar and sometimes sing, nice to meet you all",
+      "links": [
+        {
+          "type": "Youtube",
+          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      ],
+      "instruments": [
+        "Guitar",
+        "Violin"
+      ],
+      "genres": [
+        "Rock",
+        "Classical"
+      ],
+      "goals": [
+        "Hobby"
+      ],
+      "capabilities": [
+        "Sing"
+      ]
+    },
+    {
+      "firstName": "Mia",
+      "lastName": "Yang",
+      "pic": "https://freedesignfile.com/upload/2019/05/Asian-girl-sitting-on-the-balcony-playing-guitar-Stock-Photo.jpg",
+      "description": "Hello, I'm a UH student. I'm looking forword to meet you at the jam session",
+      "links": [
+        {
+          "type": "Youtube",
+          "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+      ],
+      "instruments": [
+        "Guitar",
+        "Violin"
+      ],
+      "genres": [
+        "Rock",
+        "Classical"
+      ],
+      "goals": [
+        "Music Career"
+      ],
+      "capabilities": [
+        "Sing"
+      ]
     }
   ],
 

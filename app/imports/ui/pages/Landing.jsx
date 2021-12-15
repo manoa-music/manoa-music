@@ -29,7 +29,7 @@ class Landing extends React.Component {
           <Grid.Row>
             <Grid.Column>
               <Link to="/listjamsessions">
-                <Image class="ui middle aligned tiny image" src ='/images/jamSession.png'/>
+                <Image class="ui middle aligned tiny image" src ='/images/listJam.png'/>
                 <h3>Jam Session</h3>
               </Link>
             </Grid.Column>
