@@ -10,6 +10,7 @@ import { userProfilePage } from './userprofile.page';
 import { adminEditPage } from './adminedit.page';
 import { createJamSessionPage } from './createJamSession.page';
 import { addTagsPage } from './addtags.page';
+import { listJamSessionsPage } from './listjamsessions.page';
 
 /* global fixture:false, test:false */
 
@@ -48,18 +49,17 @@ test('Test that signin and signout work', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-// ?
+// fails on trying to click link in landing?
 test('Test landing page with create profile', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
-  // await landingPage.isDisplayed(testController);
   await landingPage.gotocreateProfilePage(testController);
   await createProfilePage.isDisplayed(testController);
 });
 
 // fails on select?
-test('Test the Create Jam Session', async (testController) => {
+test.only('Test the Create Jam Session', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotocreateJamSessionPage(testController);
@@ -67,11 +67,12 @@ test('Test the Create Jam Session', async (testController) => {
   await createJamSessionPage.createJamSession(testController, createJam.name, createJam.location, createJam.time, createJam.genres, createJam.capabilities, createJam.info);
 });
 
-// ?
-test.only('Test the list Jam Sessions Page', async (testController) => {
+// Passed
+test('Test the list Jam Sessions Page', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotolistJamSessionsPage(testController);
+  await listJamSessionsPage.clickDelete(testController);
 });
 
 // ?

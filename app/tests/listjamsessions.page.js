@@ -10,6 +10,10 @@ class ListJamSessionsPage {
   async isDisplayed(testController) {
     await testController.expect(this.pageSelector.exists).ok();
   }
+
+  async clickDelete(testController) {
+    await testController.click('#listJam-delete');
+  }
 }
 
 export const listJamSessionsPage = new ListJamSessionsPage();

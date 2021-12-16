@@ -14,7 +14,7 @@ class SessionCard extends React.Component {
   render() {
     console.log(this.props.session.name);
     return (
-      <Card>
+      <Card id="list-jam-sessions-page">
         <Card.Content>
           <Card.Header>
             {this.props.session.name}
@@ -41,7 +41,7 @@ class SessionCard extends React.Component {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <Button onClick={() => this.deleteSession(this.props.session._id)}>Delete</Button>
+          <Button id="listJam-delete" onClick={() => this.deleteSession(this.props.session._id)}>Delete</Button>
         </Card.Content>
       </Card>
     );

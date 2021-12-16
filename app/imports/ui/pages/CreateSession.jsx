@@ -61,9 +61,9 @@ class CreateSession extends React.Component {
               <TextField id="createJam-name" name='name'/>
               <TextField id="createJam-location" name='location'/>
               <TextField id="createJam-time" name='time'/>
-              <SelectField checkbox allowedValues={this.period} name='period'/>
-              <SelectField checkbox allowedValues={this.dateMonth} name='dateMonth'/>
-              <SelectField checkbox allowedValues={this.dateDay} name='dateDay'/>
+              <RadioField id="createJam-periodJam" checkbox allowedValues={this.period} name='period'/>
+              <RadioField id="createJam-date" checkbox allowedValues={this.dateMonth} name='dateMonth'/>
+              <RadioField id="createJam-day" checkbox allowedValues={this.dateDay} name='dateDay'/>
               <TextField id="createJam-name" name='genres'/>
               <TextField id="createJam-capabilities" name='capabilities'/>
               <TextField id="createJam-info" name='info'/>
