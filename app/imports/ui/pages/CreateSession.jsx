@@ -12,12 +12,9 @@ const formSchema = new SimpleSchema({
   name: String,
   location: String,
   time: Number,
-  period: Array,
-  'period.$': String,
-  dateMonth: Array,
-  'dateMonth.$': String,
-  dateDay: Array,
-  'dateDay.$': String,
+  period: String,
+  dateMonth: String,
+  dateDay: String,
   genres: String,
   capabilities: String,
   info: String,
@@ -61,10 +58,10 @@ class CreateSession extends React.Component {
               <TextField id="createJam-name" name='name'/>
               <TextField id="createJam-location" name='location'/>
               <TextField id="createJam-time" name='time'/>
-              <RadioField id="createJam-periodJam" checkbox allowedValues={this.period} name='period'/>
-              <RadioField id="createJam-date" checkbox allowedValues={this.dateMonth} name='dateMonth'/>
-              <RadioField id="createJam-day" checkbox allowedValues={this.dateDay} name='dateDay'/>
-              <TextField id="createJam-name" name='genres'/>
+              <RadioField id="createJam-periodJam" allowedValues={this.period} name='period'/>
+              <RadioField id="createJam-date" allowedValues={this.dateMonth} name='dateMonth'/>
+              <RadioField id="createJam-day" allowedValues={this.dateDay} name='dateDay'/>
+              <TextField id="createJam-genres" name='genres'/>
               <TextField id="createJam-capabilities" name='capabilities'/>
               <TextField id="createJam-info" name='info'/>
               <SubmitField id="createJam-submit" value='Create Jam Session'/>
