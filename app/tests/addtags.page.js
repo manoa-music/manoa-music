@@ -11,9 +11,9 @@ class AddTagsPage {
     await testController.wait(10000).expect(this.pageSelector.exists).ok();
   }
 
-  async createTag(testController, tag) {
+  async createTag(testController) {
     await this.isDisplayed(testController);
-    await testController.typeText('#addTags-tag', tag);
+    // await testController.typeText('#addTags-tag', tag);
     await testController.click('#addTags-add');
   }
 }

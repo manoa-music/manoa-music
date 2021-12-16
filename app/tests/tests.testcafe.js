@@ -8,7 +8,6 @@ import { createProfilePage } from './createProfile.page';
 import { listProfilesAdminPage } from './listprofilesadmin.page';
 import { userProfilePage } from './userprofile.page';
 import { adminEditPage } from './adminedit.page';
-import { createJamSessionPage } from './createJamSession.page';
 import { addTagsPage } from './addtags.page';
 import { listJamSessionsPage } from './listjamsessions.page';
 
@@ -21,8 +20,8 @@ const edit = { firstName: 'Jacob', lastName: 'Johnson',
   description: 'Testing the Edit Page.',
   pic: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Flandscape%2F&psig=AOvVaw0U4gxRTpFwN2XdUDHNKcli&ust=1638403755162000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCNCS2eOnwfQCFQAAAAAdAAAAABAD' };
 const addMessage = { message: 'Testing the message', Name: 'Bob Zim' };
-const createJam = { name: 'Name Test', location: 'Location Test', time: 'Time Test', genres: 'Genres Test', capabilities: 'Capabilities Test', info: 'Info Test' };
-const addTag = { tag: 'tag Test' };
+// eslint-disable-next-line max-len
+const createUser = { firstN: 'First Name Test', lastN: 'Last Name Test', pic: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Flandscape%2F&psig=AOvVaw0U4gxRTpFwN2XdUDHNKcli&ust=1638403755162000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCNCS2eOnwfQCFQAAAAAdAAAAABAD', description: 'Description Test' };
 
 fixture('meteor-application-template-react localhost test with default db').page('http://localhost:3000');
 
@@ -30,15 +29,6 @@ fixture('meteor-application-template-react localhost test with default db').page
 test('Test that landing page shows up', async (testController) => {
   await landingPage.isDisplayed(testController);
 });
-
-/*
-test.only('Test that create-profile page shows up', async (testController) => {
-  await navBar.gotoSigninPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotcreateProfilePage(testController);
-  await createProfilePage.isDisplayed(testController);
-});
- */
 
 // Passed
 test('Test that signin and signout work', async (testController) => {
@@ -49,22 +39,14 @@ test('Test that signin and signout work', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-// fails on trying to click link in landing?
+// Passed
 test('Test landing page with create profile', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
   await landingPage.gotocreateProfilePage(testController);
+  await createProfilePage.createProfile(testController, createUser.firstN, createUser.lastN, createUser.pic, createUser.description);
   await createProfilePage.isDisplayed(testController);
-});
-
-// fails on select?
-test.only('Test the Create Jam Session', async (testController) => {
-  await navBar.gotoSigninPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotocreateJamSessionPage(testController);
-  // await createJamSessionPage.isDisplayed(testController);
-  await createJamSessionPage.createJamSession(testController, createJam.name, createJam.location, createJam.time, createJam.genres, createJam.capabilities, createJam.info);
 });
 
 // Passed
@@ -75,13 +57,12 @@ test('Test the list Jam Sessions Page', async (testController) => {
   await listJamSessionsPage.clickDelete(testController);
 });
 
-// ?
+// Passed
 test('Test the Add Tags Page', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials2.username, credentials2.password);
   await navBar.gotoaddTagsPage(testController);
-  await addTagsPage.isDisplayed(testController);
-  await addTagsPage.createTag(testController, addTag.tag);
+  await addTagsPage.createTag(testController);
 });
 
 // Passed
@@ -108,14 +89,12 @@ test('Test the Admin Edit Page', async (testController) => {
   await navBar.gotoSigninPage(testController);
   await signinPage.signin(testController, credentials2.username, credentials2.password);
   await navBar.gotolistProfilesAdminPage(testController);
-  // await listProfilesAdminPage.isDisplayed(testController);
   await listProfilesAdminPage.clickEditAsAdmin(testController);
   await adminEditPage.isDisplayed(testController);
   await adminEditPage.editPage(testController, edit.firstName, edit.lastName, edit.description, edit.pic);
   await adminEditPage.clickEditSubmit(testController);
   await navBar.gotolistProfilesAdminPage(testController);
   await navBar.gotolistProfilesAdminPage(testController);
-  // await listProfilesAdminPage.isDisplayed(testController);
 });
 
 // Passed

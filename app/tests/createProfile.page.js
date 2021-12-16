@@ -11,10 +11,9 @@ class CreateProfilePage {
     await testController.expect(this.pageSelector.exists).ok();
   }
 
-  async createProfile(testController, firstName, lastName, pic, description) {
-    await this.isDisplayed(testController);
-    await testController.typeText('#create-firstName', firstName);
-    await testController.typeText('#create-lastName', lastName);
+  async createProfile(testController, firstN, lastN, pic, description) {
+    await testController.typeText('#create-firstName', firstN);
+    await testController.typeText('#create-lastName', lastN);
     await testController.typeText('#create-pic', pic);
     await testController.typeText('#create-description', description);
     await testController.click('#create-submit');

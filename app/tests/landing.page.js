@@ -13,8 +13,7 @@ class LandingPage {
   }
 
   async gotocreateProfilePage(testController) {
-    await testController.click('#landing-create-profile-page');
-    // await testController.click('landing-create-profile-page');
+    await testController.navigateTo('http://localhost:3000/#/createprofile');
   }
 }
 

@@ -4,7 +4,7 @@ class CreateJamSessionPage {
   constructor() {
     this.pageId = '#create-jam-page';
     this.pageSelector = Selector(this.pageId);
-    this.checkbox = Selector('#createJam-periodJam');
+    this.checkbox = Selector('#createJam-period');
     this.checkbox2 = Selector('#createJam-date');
     this.checkbox3 = Selector('#createJam-day');
   }

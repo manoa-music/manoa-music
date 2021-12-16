@@ -9,9 +9,9 @@ import PropTypes from 'prop-types';
 class Landing extends React.Component {
   render() {
     return (
-      <div id="landing-page">
+      <div>
         <h1 className ="ui center aligned header" > Connect with UH Manoa Musicians</h1>
-        <Grid centered columns={4}>
+        <Grid centered columns={4} id="landing-page">
           {this.props.currentUser === '' ? (
             <Grid.Column>
               <Link to= "/signup">
