@@ -8,14 +8,11 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListProfilesAdmin from '../pages/ListProfilesAdmin';
-import AddStuff from '../pages/AddStuff';
-import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import UserHome from '../pages/UserHome';
-import AdminProfileTemp from '../pages/AdminProfileTemp';
 import AdminHome from '../pages/AdminHome';
 import CreateProfile from '../pages/CreateProfile';
 import EditProfileAdmin from '../pages/EditProfileAdmin';
@@ -46,12 +43,9 @@ class App extends React.Component {
               <ProtectedRoute path="/createsession" component={CreateSession}/>
               <ProtectedRoute path="/listjamsessions" component={ListJamSessions}/>
               <ProtectedRoute path="/userprofile" component={UserProfile}/>
-              <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/create" component={AddProfile}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/adminlist" component={ListProfilesAdmin}/>
               <AdminProtectedRoute path="/adminedit/:_id" component={EditProfileAdmin}/>
-              <AdminProtectedRoute path="/adminprofile" component={AdminProfileTemp}/>
               <AdminProtectedRoute path="/adminhome" component={AdminHome}/>
               <AdminProtectedRoute path="/addTags" component={AddTags}/>
               <Route component={NotFound}/>
